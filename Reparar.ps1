@@ -42,6 +42,6 @@ while ($opcao -ne 0) {
     }
 
     elseif ($opcao -eq 6) {
-        
+        .\Remove-UselessFilesWithCleanmgr.ps1
     }
 }
