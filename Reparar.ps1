@@ -9,7 +9,7 @@ function ObterOpcao {
         Write-Host -Object "3 - Reparar arquivos do sistema com o SFC (System File Checker)"
         Write-Host -Object "4 - Desfragmentar disco"
         Write-Host -Object "5 - Reparar erros do sistema de arquivos com o CHKDSK ('Check Disk')"
-        Write-Host -Object "6 - Remover arquivos inuteis com o cleanmgr"
+        Write-Host -Object "6 - Limpar o sistema"
         $_opcao = ./Read-Int32.ps1
     }
 
@@ -42,6 +42,6 @@ while ($opcao -ne 0) {
     }
 
     elseif ($opcao -eq 6) {
-        .\Remove-UselessFilesWithCleanmgr.ps1
+        .\Limpar.ps1
     }
 }
