@@ -11,5 +11,6 @@
 # Running Ccleaner
 $process = [System.Diagnostics.Process]::new()
 $process.StartInfo.FileName = [System.IO.Path]::Combine($env:ProgramFiles, "CCleaner", "CCleaner64.exe")
+$process.StartInfo.UseShellExecute = $true
 $process.Start()
 $process.WaitForExit()
