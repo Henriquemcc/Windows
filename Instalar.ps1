@@ -1,9 +1,6 @@
 # Alterando o protocolo de seguranca
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12;
 
-# Reparando o Windows
-.\Repair-Windows.ps1
-
 # Instalando o modulo package management
 Install-Module -Name PackageManagement -Force -MinimumVersion 1.4.6 -Scope CurrentUser -AllowClobber -Repository PSGallery
 
