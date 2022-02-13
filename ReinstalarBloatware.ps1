@@ -1,3 +1,6 @@
+
+# https://www.howtogeek.com/224798/how-to-uninstall-windows-10s-built-in-apps-and-how-to-reinstall-them/#:~:text=How%20to%20Reinstall,then%20press%20Enter%3A
+
 function ObterOpcao {
 
     $_opcao = -1
