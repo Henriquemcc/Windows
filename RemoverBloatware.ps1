@@ -1,3 +1,8 @@
+
+# https://www.makeuseof.com/tag/easily-remove-bloatware-windows-10/
+
+# https://www.howtogeek.com/224798/how-to-uninstall-windows-10s-built-in-apps-and-how-to-reinstall-them/#:~:text=Use%20PowerShell%20to,can%E2%80%99t%20be%20removed.
+
 function ObterOpcao {
 
     $_opcao = -1
