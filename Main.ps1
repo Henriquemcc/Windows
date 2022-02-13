@@ -1,13 +1,15 @@
 function ObterOpcao {
 
     $_opcao = -1
-    while ($_opcao -lt 0 -or $_opcao -gt 4) {
+    while ($_opcao -lt 0 -or $_opcao -gt 6) {
         Write-Host -Object "O que deseja fazer?"
         Write-Host -Object "0 - Sair"
-        Write-Host -Object "1 - Executar instalacao padrao"
-        Write-Host -Object "2 - Reparar o Windows"
-        Write-Host -Object "3 - Limpar o sistema"
-        Write-Host -Object "4 - Remover malware"
+        Write-Host -Object "1 - Instalar"
+        Write-Host -Object "2 - Atualizar"
+        Write-Host -Object "3 - Reparar"
+        Write-Host -Object "4 - Limpar"
+        Write-Host -Object "5 - Remover"
+        Write-Host -Object "6 - Configurar"
         $_opcao = ./Read-Int32.ps1
     }
 
@@ -23,14 +25,22 @@ while ($opcao -ne 0) {
     }
 
     elseif ($opcao -eq 2) {
-        .\Reparar.ps1
+        .\Atualizar.ps1
     }
 
     elseif ($opcao -eq 3) {
-        .\Limpar.ps1
+        .\Reparar.ps1
     }
 
     elseif ($opcao -eq 4) {
-        .\RemoverMalware.ps1
+        .\Limpar.ps1
+    }
+
+    elseif ($opcao -eq 5) {
+        .\Remover.ps1
+    }
+
+    elseif ($opcao -eq 6) {
+        .\Configurar.ps1
     }
 }
