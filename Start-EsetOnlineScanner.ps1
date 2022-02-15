@@ -2,7 +2,7 @@
 .SYNOPSIS
     Runs ESET Online Scanner
 .DESCRIPTION
-    Retrieves and execute ESET Online Scanner
+    Retrieves and executes ESET Online Scanner
 #>
 
 # Downloading ESET Online Scanner
