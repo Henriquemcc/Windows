@@ -33,4 +33,4 @@ foreach ($rule in $AcessRule) {
 }
 
 # Applying security descriptor
-Set-Acl -AclObject $itemSecurityDescriptor
+Set-Acl -Path $Path -AclObject $itemSecurityDescriptor
