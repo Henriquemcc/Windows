@@ -24,7 +24,7 @@ foreach ($line in $fileContent) {
     
 }
 
-Out-File -FilePath $filePath -InputObject $newFileContent
+Out-File -FilePath $filePath -InputObject $newFileContent -Encoding ascii
 
 # Restarting Open SSH Server service
 Restart-Service -Name "sshd"
