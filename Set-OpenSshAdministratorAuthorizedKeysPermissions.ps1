@@ -18,3 +18,6 @@ $path = [System.IO.Path]::Combine($env:ProgramData, "ssh", "administrators_autho
 
 # Changing file permission
 .\Set-ItemPermission.ps1 -Path $path -AcessRule $accessRule -IsProtected $true -PreserveInheritance $false
+
+# Restarting Open SSH Server service
+Restart-Service -Name "sshd"
