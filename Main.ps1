@@ -1,7 +1,7 @@
 function ObterOpcao {
 
     $_opcao = -1
-    while ($_opcao -lt 0 -or $_opcao -gt 6) {
+    while ($_opcao -lt 0 -or $_opcao -gt 7) {
         Write-Host -Object "O que deseja fazer?"
         Write-Host -Object "0 - Sair"
         Write-Host -Object "1 - Instalar"
@@ -10,6 +10,7 @@ function ObterOpcao {
         Write-Host -Object "4 - Limpar"
         Write-Host -Object "5 - Remover"
         Write-Host -Object "6 - Configurar"
+        Write-Host -Object "7 - Parar"
         $_opcao = ./Read-Int32.ps1
     }
 
@@ -42,5 +43,9 @@ while ($opcao -ne 0) {
 
     elseif ($opcao -eq 6) {
         .\Configurar.ps1
+    }
+
+    elseif ($opcao -eq 7) {
+        .\Parar.ps1
     }
 }
