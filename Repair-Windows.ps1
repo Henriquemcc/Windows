@@ -1,9 +1,11 @@
-.\Repair-SystemImageWithDism.ps1
+Import-Module -Name ([System.IO.Path]::Join((Split-Path -Path $MyInvocation.MyCommand.Definition -Parent), "functions", "RepairWindows", "RepairWindows.psm1"))
 
-.\Repair-SystemFilesWithSfc.ps1
+Repair-SystemImageWithDism
 
-.\Remove-UselessFilesWithCleanmgr.ps1
+Repair-SystemFilesWithSfc
 
-.\DefragSystemPartition.ps1
+./Remove-UselessFilesWithCleanmgr.ps1
 
-.\Repair-SystemPartition.ps1
+DefragSystemPartition
+
+Repair-SystemPartition

@@ -1,4 +1,5 @@
 Import-Module -Name ([System.IO.Path]::Join((Split-Path -Path $MyInvocation.MyCommand.Definition -Parent), "functions", "MyIO", "MyIO.psm1"))
+Import-Module -Name ([System.IO.Path]::Join((Split-Path -Path $MyInvocation.MyCommand.Definition -Parent), "functions", "RepairWindows", "RepairWindows.psm1"))
 
 function ObterOpcao {
 
@@ -28,19 +29,19 @@ while ($opcao -ne 0) {
     }
 
     elseif ($opcao -eq 2) {
-        .\Repair-SystemImageWithDism.ps1
+        Repair-SystemImageWithDism
     }
 
     elseif ($opcao -eq 3) {
-        .\Repair-SystemFilesWithSfc.ps1
+        Repair-SystemFilesWithSfc
     }
 
     elseif ($opcao -eq 4) {
-        .\DefragSystemPartition.ps1
+        DefragSystemPartition
     }
 
     elseif ($opcao -eq 5) {
-        .\Repair-SystemPartition.ps1
+        Repair-SystemPartition
     }
 
     elseif ($opcao -eq 6) {
