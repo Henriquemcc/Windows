@@ -1,4 +1,4 @@
-Import-Module -Name ([System.IO.Path]::Join((Split-Path -Path $MyInvocation.MyCommand.Definition -Parent), "..", "File", "File.psm1"))
+Import-Module -Name ([System.IO.Path]::Join((Split-Path -Path $MyInvocation.MyCommand.Definition -Parent), "..", "Util", "Util.psm1"))
 
 function Set-OpenSshAdministratorAuthorizedKeysPermissions
 {
