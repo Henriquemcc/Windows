@@ -7,8 +7,8 @@ function ObterOpcao {
     while ($_opcao -lt 0 -or $_opcao -gt 3) {
         Write-Host -Object "O que deseja fazer?"
         Write-Host -Object "0 - Sair"
-        Write-Host -Object "1 - Remover arquivos inuteis com o cleanmgr"
-        Write-Host -Object "2 - Remover arquivos temporarios"
+        Write-Host -Object "1 - Remover arquivos inúteis com o cleanmgr"
+        Write-Host -Object "2 - Remover arquivos temporários"
         Write-Host -Object "3 - Baixar, instalar e executar o Ccleaner"
         $_opcao = Read-Int32
     }

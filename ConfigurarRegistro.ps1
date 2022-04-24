@@ -10,10 +10,10 @@ function ObterOpcao
         Write-Host -Object "0 - Sair"
         Write-Host -Object "1 - Configurar registro para que o Windows User Account Control exija a senha para rodar um programa como administrador"
         Write-Host -Object "2 - Restaurar padrão: 'Configurar registro para que o Windows User Account Control exija a senha para rodar um programa como administrador'"
-        Write-Host -Object "3 - Habilitar a correcao retpoline da mitigacao da vulnerabilidade Spectre"
-        Write-Host -Object "4 - Restaurar padrão: 'Habilitar a correcao retpoline da mitigacao da vulnerabilidade Spectre'"
-        Write-Host -Object "5 - Alterar a configuracao de fuso horario para manter sincronizado o horario em computadores dual boot (Windows + Linux)"
-        Write-Host -Object "6 - Restaurar padrão: 'Alterar a configuracao de fuso horario para manter sincronizado o horario em computadores dual boot (Windows + Linux)'"
+        Write-Host -Object "3 - Habilitar a correção retpoline da mitigação da vulnerabilidade Spectre"
+        Write-Host -Object "4 - Restaurar padrão: 'Habilitar a correção retpoline da mitigação da vulnerabilidade Spectre'"
+        Write-Host -Object "5 - Alterar a configuração de fuso horário para manter sincronizado o horário em computadores dual boot (Windows + Linux)"
+        Write-Host -Object "6 - Restaurar padrão: 'Alterar a configuração de fuso horário para manter sincronizado o horário em computadores dual boot (Windows + Linux)'"
         $_opcao = Read-Int32
     }
 

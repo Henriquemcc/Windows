@@ -8,10 +8,10 @@ function ObterOpcao {
         Write-Host -Object "O que deseja fazer?"
         Write-Host -Object "0 - Sair"
         Write-Host -Object "1 - Definir permissoes do arquivo de chaves de administradores permitidas"
-        Write-Host -Object "2 - Habilitar autenticacao por Chave publica"
-        Write-Host -Object "3 - Desabilitar autenticacao por Chave publica"
-        Write-Host -Object "4 - Habilitar autenticacao por senha"
-        Write-Host -Object "5 - Desabilitar autenticacao por senha"
+        Write-Host -Object "2 - Habilitar autenticação por Chave pública"
+        Write-Host -Object "3 - Desabilitar autenticação por Chave pública"
+        Write-Host -Object "4 - Habilitar autenticação por senha"
+        Write-Host -Object "5 - Desabilitar autenticação por senha"
         $_opcao = Read-Int32
     }
 

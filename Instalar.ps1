@@ -6,7 +6,7 @@ function ObterOpcao {
     while ($_opcao -lt 0 -or $_opcao -gt 5) {
         Write-Host -Object "O que deseja fazer?"
         Write-Host -Object "0 - Sair"
-        Write-Host -Object "1 - Instalar instalacao padrao"
+        Write-Host -Object "1 - Instalar instalação padrao"
         Write-Host -Object "2 - Instalar Chocolatey (gerenciador de pacotes)"
         Write-Host -Object "3 - Instalar Ccleaner (utilitario de limpeza)"
         Write-Host -Object "4 - Instalar/Reinstalar Bloatware"
