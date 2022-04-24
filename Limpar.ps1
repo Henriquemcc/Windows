@@ -1,4 +1,5 @@
 Import-Module -Name ([System.IO.Path]::Join((Split-Path -Path $MyInvocation.MyCommand.Definition -Parent), "functions", "MyIO", "MyIO.psm1"))
+Import-Module -Name ([System.IO.Path]::Join((Split-Path -Path $MyInvocation.MyCommand.Definition -Parent), "functions", "CleanWindows", "CleanWindows.psm1"))
 
 function ObterOpcao {
 
@@ -20,14 +21,14 @@ while ($opcao -ne 0) {
     $opcao = ObterOpcao
 
     if ($opcao -eq 1) {
-        .\Remove-UselessFilesWithCleanmgr.ps1
+        Remove-UselessFilesWithCleanmgr
     }
 
     elseif ($opcao -eq 2) {
-        .\Remove-TemporaryFiles.ps1
+        Remove-TemporaryFiles
     }
 
     elseif ($opcao -eq 3) {
-        .\Start-Ccleaner.ps1
+        Start-Ccleaner
     }
 }
