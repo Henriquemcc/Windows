@@ -26,11 +26,13 @@ while ($opcao -ne 0) {
     }
 
     elseif ($opcao -eq 2) {
-        .\Install-Chocolatey.ps1
+        Import-Module -Name ([System.IO.Path]::Combine((Split-Path -Path $MyInvocation.MyCommand.Definition -Parent), "functions", "Chocolatey", "Install-Chocolatey.ps1"))
+        Install-Chocolatey
     }
 
     elseif ($opcao -eq 3) {
-        .\Install-Ccleaner.ps1
+        Import-Module -Name ([System.IO.Path]::Combine((Split-Path -Path $MyInvocation.MyCommand.Definition -Parent), "functions", "CleanWindows", "Install-Ccleaner.ps1"))
+        Install-Ccleaner
     }
 
     elseif ($opcao -eq 4) {
@@ -38,6 +40,7 @@ while ($opcao -ne 0) {
     }
 
     elseif ($opcao -eq 5) {
-        .\Install-OpenSshServer.ps1
+        Import-Module -Name ([System.IO.Path]::Combine((Split-Path -Path $MyInvocation.MyCommand.Definition -Parent), "functions", "OpenSshServer", "Install-OpenSshServer.ps1"))
+        Install-OpenSshServer
     }
 }
