@@ -1,4 +1,4 @@
-Import-Module -Name ([System.IO.Path]::Join((Split-Path -Path $MyInvocation.MyCommand.Definition -Parent), "..", "Util", "Util.psm1"))
+Import-Module -Name ([System.IO.Path]::Combine((Split-Path -Path $MyInvocation.MyCommand.Definition -Parent), "..", "Util", "Util.psm1"))
 
 function Install-Chocolatey
 {
