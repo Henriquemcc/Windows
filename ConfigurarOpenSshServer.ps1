@@ -1,4 +1,5 @@
 Import-Module -Name ([System.IO.Path]::Join((Split-Path -Path $MyInvocation.MyCommand.Definition -Parent), "functions", "MyIO", "MyIO.psm1"))
+Import-Module -Name ([System.IO.Path]::Join((Split-Path -Path $MyInvocation.MyCommand.Definition -Parent), "functions", "OpenSshServer", "OpenSshServer.psm1"))
 
 function ObterOpcao {
 
@@ -22,23 +23,23 @@ while ($opcao -ne 0) {
     $opcao = ObterOpcao
 
     if ($opcao -eq 1) {
-        .\Set-OpenSshAdministratorAuthorizedKeysPermissions.ps1
+        Set-OpenSshAdministratorAuthorizedKeysPermissions
     }
 
     elseif ($opcao -eq 2) {
-        .\Enable-OpenSshServerPublicKeyAuthentication.ps1
+        Enable-OpenSshServerPublicKeyAuthentication
     }
 
     elseif ($opcao -eq 3) {
-        .\Disable-OpenSshServerPublicKeyAuthentication.ps1
+        Disable-OpenSshServerPublicKeyAuthentication
     }
 
     elseif ($opcao -eq 4) {
-        .\Enable-OpenSshServerPasswordAuthentication.ps1
+        Enable-OpenSshServerPasswordAuthentication
     }
 
     elseif ($opcao -eq 5) {
-        .\Disable-OpenSshServerPasswordAuthentication.ps1
+        Disable-OpenSshServerPasswordAuthentication
     }
 
 }
