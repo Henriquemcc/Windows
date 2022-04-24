@@ -1,3 +1,5 @@
+Import-Module -Name ([System.IO.Path]::Join((Split-Path -Path $MyInvocation.MyCommand.Definition -Parent), "functions", "MyIO", "MyIO.psm1"))
+
 function ObterOpcao {
 
     $_opcao = -1
@@ -7,7 +9,7 @@ function ObterOpcao {
         Write-Host -Object "1 - Remover arquivos inuteis com o cleanmgr"
         Write-Host -Object "2 - Remover arquivos temporarios"
         Write-Host -Object "3 - Baixar, instalar e executar o Ccleaner"
-        $_opcao = ./Read-Int32.ps1
+        $_opcao = Read-Int32
     }
 
     return $_opcao

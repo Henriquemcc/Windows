@@ -1,3 +1,5 @@
+Import-Module -Name ([System.IO.Path]::Join((Split-Path -Path $MyInvocation.MyCommand.Definition -Parent), "functions", "MyIO", "MyIO.psm1"))
+
 function ObterOpcao {
 
     $_opcao = -1
@@ -5,7 +7,7 @@ function ObterOpcao {
         Write-Host -Object "O que deseja fazer?"
         Write-Host -Object "0 - Sair"
         Write-Host -Object "1 - Instalar programas Henrique"
-        $_opcao = ./Read-Int32.ps1
+        $_opcao = Read-Int32
     }
 
     return $_opcao

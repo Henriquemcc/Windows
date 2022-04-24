@@ -1,3 +1,5 @@
+Import-Module -Name ([System.IO.Path]::Join((Split-Path -Path $MyInvocation.MyCommand.Definition -Parent), "functions", "MyIO", "MyIO.psm1"))
+
 function ObterOpcao {
 
     $_opcao = -1
@@ -10,7 +12,7 @@ function ObterOpcao {
         Write-Host -Object "4 - Reverter: 'Habilitar a correcao retpoline da mitigacao da vulnerabilidade Spectre'"
         Write-Host -Object "5 - Alterar a configuracao de fuso horario para manter sincronizado o horario em computadores dual boot (Windows + Linux)"
         Write-Host -Object "6 - Reverter: 'Alterar a configuracao de fuso horario para manter sincronizado o horario em computadores dual boot (Windows + Linux)'"
-        $_opcao = ./Read-Int32.ps1
+        $_opcao = Read-Int32
     }
 
     return $_opcao

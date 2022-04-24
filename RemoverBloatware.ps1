@@ -1,3 +1,4 @@
+Import-Module -Name ([System.IO.Path]::Join((Split-Path -Path $MyInvocation.MyCommand.Definition -Parent), "functions", "MyIO", "MyIO.psm1"))
 
 # https://www.makeuseof.com/tag/easily-remove-bloatware-windows-10/
 
@@ -28,7 +29,7 @@ function ObterOpcao {
         Write-Host -Object "17 - Remover: Microsoft Zune Music"
         Write-Host -Object "18 - Reinstalar Bloatware"
         
-        $_opcao = ./Read-Int32.ps1
+        $_opcao = Read-Int32
     }
 
     return $_opcao

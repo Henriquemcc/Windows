@@ -1,3 +1,5 @@
+Import-Module -Name ([System.IO.Path]::Join((Split-Path -Path $MyInvocation.MyCommand.Definition -Parent), "functions", "MyIO", "MyIO.psm1"))
+
 function ObterOpcao {
 
     $_opcao = -1
@@ -9,7 +11,7 @@ function ObterOpcao {
         Write-Host -Object "3 - Desabilitar autenticacao por Chave publica"
         Write-Host -Object "4 - Habilitar autenticacao por senha"
         Write-Host -Object "5 - Desabilitar autenticacao por senha"
-        $_opcao = ./Read-Int32.ps1
+        $_opcao = Read-Int32
     }
 
     return $_opcao

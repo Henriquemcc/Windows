@@ -1,3 +1,5 @@
+Import-Module -Name ([System.IO.Path]::Join((Split-Path -Path $MyInvocation.MyCommand.Definition -Parent), "functions", "MyIO", "MyIO.psm1"))
+
 function ObterOpcao {
 
     $_opcao = -1
@@ -11,7 +13,7 @@ function ObterOpcao {
         Write-Host -Object "5 - Remover"
         Write-Host -Object "6 - Configurar"
         Write-Host -Object "7 - Parar"
-        $_opcao = ./Read-Int32.ps1
+        $_opcao = Read-Int32
     }
 
     return $_opcao
