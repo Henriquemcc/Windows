@@ -1,4 +1,4 @@
-function Set-ItemPermission
+﻿function Set-ItemPermission
 {
     <#
     .SYNOPSIS

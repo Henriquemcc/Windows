@@ -1,4 +1,4 @@
-function Uninstall-Chocolatey
+﻿function Uninstall-Chocolatey
 {
     <#
     .SYNOPSIS

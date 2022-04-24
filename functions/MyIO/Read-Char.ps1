@@ -1,4 +1,4 @@
-function Read-Char
+﻿function Read-Char
 {
     param(
         [Parameter(Mandatory = $false)] [String] $Prompt

@@ -1,4 +1,4 @@
-function Start-FSecureOnlineScanner
+﻿function Start-FSecureOnlineScanner
 {
     <#
     .SYNOPSIS

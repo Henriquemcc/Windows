@@ -1,4 +1,4 @@
-function Read-Double
+﻿function Read-Double
 {
     param(
         [Parameter(Mandatory = $false)] [String] $Prompt

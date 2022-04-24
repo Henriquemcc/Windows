@@ -1,4 +1,4 @@
-function Read-Int32
+﻿function Read-Int32
 {
     param(
         [Parameter(Mandatory = $false)] $Prompt = $null

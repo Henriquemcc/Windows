@@ -1,4 +1,4 @@
-function Read-Boolean
+﻿function Read-Boolean
 {
     param(
         [Parameter(Mandatory = $false)] [String] $Prompt

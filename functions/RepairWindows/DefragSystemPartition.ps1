@@ -1,4 +1,4 @@
-function DefragSystemPartition
+﻿function DefragSystemPartition
 {
     <#
     .SYNOPSIS

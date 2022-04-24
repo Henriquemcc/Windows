@@ -1,4 +1,4 @@
-function Read-Int16
+﻿function Read-Int16
 {
     param(
         [Parameter(Mandatory = $false)] [String] $Prompt

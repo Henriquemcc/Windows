@@ -1,4 +1,4 @@
-function Uninstall-OpenSshServer
+﻿function Uninstall-OpenSshServer
 {
     <#
     .SYNOPSIS

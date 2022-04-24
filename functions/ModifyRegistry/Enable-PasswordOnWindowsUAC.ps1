@@ -1,4 +1,4 @@
-# https://superuser.com/questions/1085680/windows-10-make-uac-always-require-password
+﻿# https://superuser.com/questions/1085680/windows-10-make-uac-always-require-password
 
 function Enable-PasswordOnWindowsUAC
 {

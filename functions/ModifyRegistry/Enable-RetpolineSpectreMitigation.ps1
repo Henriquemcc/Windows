@@ -1,4 +1,4 @@
-# https://www.bleepingcomputer.com/news/security/boost-windows-10-performance-with-retpoline-spectre-mitigation/
+﻿# https://www.bleepingcomputer.com/news/security/boost-windows-10-performance-with-retpoline-spectre-mitigation/
 
 function Enable-RetpolineSpectreMitigation
 {

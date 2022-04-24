@@ -1,4 +1,4 @@
-function Read-Decimal
+﻿function Read-Decimal
 {
     param(
         [Parameter(Mandatory = $false)] [String] $Prompt

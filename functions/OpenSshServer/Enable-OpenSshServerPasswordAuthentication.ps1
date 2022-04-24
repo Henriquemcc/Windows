@@ -1,4 +1,4 @@
-function Enable-OpenSshServerPasswordAuthentication
+﻿function Enable-OpenSshServerPasswordAuthentication
 {
     <#
     .SYNOPSIS

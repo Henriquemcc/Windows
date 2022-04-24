@@ -1,4 +1,4 @@
-function Enable-OpenSshServerPublicKeyAuthentication
+﻿function Enable-OpenSshServerPublicKeyAuthentication
 {
     <#
     .SYNOPSIS

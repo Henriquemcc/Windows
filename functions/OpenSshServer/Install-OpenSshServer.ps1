@@ -1,4 +1,4 @@
-function Install-OpenSshServer
+﻿function Install-OpenSshServer
 {
     <#
     .SYNOPSIS

@@ -1,4 +1,4 @@
-function Read-Byte
+﻿function Read-Byte
 {
     param(
         [Parameter(Mandatory = $false)] [String] $Prompt

@@ -1,4 +1,4 @@
-function Start-TrendMicroHouseCall
+﻿function Start-TrendMicroHouseCall
 {
     <#
     .SYNOPSIS

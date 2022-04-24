@@ -1,4 +1,4 @@
-# Setting Windows User Account Control to require password to run a program as administrator
+﻿# Setting Windows User Account Control to require password to run a program as administrator
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "ConsentPromptBehaviorAdmin" -Value 1 -Force
 
 # Setting Windows Time Zone to dual boot with Linux

@@ -1,4 +1,4 @@
-[English Version](README.EN.md)
+﻿[English Version](README.EN.md)
 
 # Workstation com Windows
 

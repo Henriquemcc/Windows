@@ -1,4 +1,4 @@
-function Disable-OpenSshServerPasswordAuthentication
+﻿function Disable-OpenSshServerPasswordAuthentication
 {
     <#
     .SYNOPSIS

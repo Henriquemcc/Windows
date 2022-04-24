@@ -1,4 +1,4 @@
-function Read-Int64
+﻿function Read-Int64
 {
     param(
         [Parameter(Mandatory = $false)] [String] $Prompt

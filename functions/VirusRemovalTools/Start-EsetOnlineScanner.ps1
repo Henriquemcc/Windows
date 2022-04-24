@@ -1,4 +1,4 @@
-function Start-EsetOnlineScanner
+﻿function Start-EsetOnlineScanner
 {
     <#
     .SYNOPSIS

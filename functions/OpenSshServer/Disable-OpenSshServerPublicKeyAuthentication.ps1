@@ -1,4 +1,4 @@
-function Disable-OpenSshServerPublicKeyAuthentication
+﻿function Disable-OpenSshServerPublicKeyAuthentication
 {
     <#
     .SYNOPSIS

@@ -1,4 +1,4 @@
-function Read-Single
+﻿function Read-Single
 {
     param(
         [Parameter(Mandatory = $false)] [String] $Prompt

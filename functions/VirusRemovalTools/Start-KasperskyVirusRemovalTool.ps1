@@ -1,4 +1,4 @@
-function Start-KasperskyVirusRemovalTool
+﻿function Start-KasperskyVirusRemovalTool
 {
     <#
     .SYNOPSIS

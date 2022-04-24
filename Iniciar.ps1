@@ -1,4 +1,4 @@
-$url = "https://github.com/Henriquemcc/Windows/archive/refs/heads/main.zip"
+﻿$url = "https://github.com/Henriquemcc/Windows/archive/refs/heads/main.zip"
 $downloadFileName = "Windows-main.zip"
 $downloadFilePath = [System.IO.Path]::Combine($env:APPDATA, $downloadFileName)
 Invoke-WebRequest -Uri $url -OutFile $downloadFilePath

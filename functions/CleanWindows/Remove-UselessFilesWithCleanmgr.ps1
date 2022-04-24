@@ -1,4 +1,4 @@
-function Remove-UselessFilesWithCleanmgr
+﻿function Remove-UselessFilesWithCleanmgr
 {
     <#
     .SYNOPSIS

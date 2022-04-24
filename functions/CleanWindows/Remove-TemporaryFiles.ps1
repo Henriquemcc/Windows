@@ -1,4 +1,4 @@
-function Remove-TemporaryFiles
+﻿function Remove-TemporaryFiles
 {
     <#
     .SYNOPSIS

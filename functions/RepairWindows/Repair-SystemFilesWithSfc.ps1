@@ -1,4 +1,4 @@
-function Repair-SystemFilesWithSfc
+﻿function Repair-SystemFilesWithSfc
 {
     <#
     .SYNOPSIS
