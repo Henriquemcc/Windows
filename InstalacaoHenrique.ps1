@@ -1,3 +1,5 @@
+Import-Module -Name ([System.IO.Path]::Join((Split-Path -Path $MyInvocation.MyCommand.Definition -Parent), "functions", "Chocolatey", "Chocolatey.psm1"))
+
 # Alterando o protocolo de seguranca
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12;
 
@@ -5,7 +7,7 @@
 Install-Module -Name PackageManagement -Force -MinimumVersion 1.4.6 -Scope CurrentUser -AllowClobber -Repository PSGallery
 
 # Instalando o gerenciador de pacotes chocolatey
-.\Install-Chocolatey.ps1
+Install-Chocolatey
 
 # Instalando pacotes chocolatey
 choco install googlechrome firefox 7zip vlc vscode gsudo audacity gimp ccleaner cdburnerxp filezilla gh keepassxc libreoffice-still nomacs paint.net --yes

@@ -1,4 +1,5 @@
 Import-Module -Name ([System.IO.Path]::Join((Split-Path -Path $MyInvocation.MyCommand.Definition -Parent), "functions", "MyIO", "MyIO.psm1"))
+Import-Module -Name ([System.IO.Path]::Join((Split-Path -Path $MyInvocation.MyCommand.Definition -Parent), "functions", "Chocolatey", "Chocolatey.psm1"))
 
 function ObterOpcao {
 
@@ -26,7 +27,7 @@ while ($opcao -ne 0) {
     }
 
     elseif ($opcao -eq 2) {
-        .\Uninstall-Chocolatey.ps1
+        Uninstall-Chocolatey
     }
 
     elseif ($opcao -eq 3) {
