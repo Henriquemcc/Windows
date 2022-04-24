@@ -25,7 +25,7 @@ while ($opcao -ne 0) {
     $opcao = ObterOpcao
 
     if ($opcao -eq 1) {
-        .\Repair-Windows.ps1
+        DefaultRepair
     }
 
     elseif ($opcao -eq 2) {
