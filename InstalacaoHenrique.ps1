@@ -1,4 +1,5 @@
 ﻿Import-Module -Name ([System.IO.Path]::Combine((Split-Path -Path $MyInvocation.MyCommand.Definition -Parent), "functions", "Chocolatey", "Chocolatey.psm1"))
+Import-Module -Name ([System.IO.Path]::Combine((Split-Path -Path $MyInvocation.MyCommand.Definition -Parent), "functions", "Cygwin", "Cygwin.psm1"))
 
 # Alterando o protocolo de seguranca
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12;
@@ -16,7 +17,7 @@ choco install virtualbox --params "/ExtensionPack" --yes
 choco install wget curl nano vim coreutils tar unzip zip unxz xz bash-completion --source cygwin --yes
 
 # Adicionando Cygwin ao path
-.\Add-CygwinToPath.ps1
+Add-CygwinToPath
 
 # Alterando chaves do registro
 .\Set-RegistryKeys.ps1
