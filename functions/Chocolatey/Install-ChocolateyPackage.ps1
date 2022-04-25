@@ -8,18 +8,17 @@ function Install-ChocolateyPackage
         [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$Trace,
         [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$NoColor,
         [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$AcceptLicense,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$Yes,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$Confirm,
+        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$ConfirmAllPrompts,
         [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$Force,
         [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$NoOp,
         [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$WhatIf,
         [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$LimitOutput,
-        [Parameter(Mandatory = $false)]$ExecutionTimeout,
+        [Parameter(Mandatory = $false)]$CommandExecutionTimeout,
         [Parameter(Mandatory = $false)]$CacheLocation,
         [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$AllowUnofficialBuild,
         [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$FailOnStandardError,
         [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$UseSystemPowerShell,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$NoProgress,
+        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$DoNotShowProgress,
         [Parameter(Mandatory = $false)]$Proxy,
         [Parameter(Mandatory = $false)]$ProxyUser,
         [Parameter(Mandatory = $false)]$ProxyPassword,
@@ -30,7 +29,6 @@ function Install-ChocolateyPackage
         [Parameter(Mandatory = $false)]$Source,
         [Parameter(Mandatory = $false)]$Version,
         [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$PreRelease,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$x86,
         [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$ForceX86,
         [Parameter(Mandatory = $false)]$InstallArguments,
         [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$OverrideArguments,
@@ -74,7 +72,7 @@ function Install-ChocolateyPackage
 
     if ($ProxyBypassList -is [System.Array])
     {
-        $ProxyBypassList = $ProxyBypassList -join " "
+        $ProxyBypassList = $ProxyBypassList -join ", "
     }
 
     if ($InstallArguments -is [System.Array])
@@ -82,7 +80,8 @@ function Install-ChocolateyPackage
         $InstallArguments = $InstallArguments -join " "
     }
 
-    if ($PackageParameters -is [System.Array]) {
+    if ($PackageParameters -is [System.Array])
+    {
         $PackageParameters = $PackageParameters -join " "
     }
 
@@ -121,7 +120,7 @@ function Install-ChocolateyPackage
         $commandString.Append(" --accept-license")
     }
 
-    if ($Yes -or $Confirm)
+    if ($ConfirmAllPrompts)
     {
         $commandString.Append(" --confirm")
     }
@@ -141,9 +140,9 @@ function Install-ChocolateyPackage
         $commandString.Append(" --limit-output")
     }
 
-    if ($ExecutionTimeout)
+    if ($CommandExecutionTimeout)
     {
-        $commandString.Append(" --execution-timeout=$ExecutionTimeout")
+        $commandString.Append(" --execution-timeout=$CommandExecutionTimeout")
     }
 
     if ($CacheLocation)
@@ -166,7 +165,7 @@ function Install-ChocolateyPackage
         $commandString.Append(" --use-system-powershell")
     }
 
-    if ($NoProgress)
+    if ($DoNotShowProgress)
     {
         $commandString.Append(" --no-progress")
     }
@@ -221,7 +220,7 @@ function Install-ChocolateyPackage
         $commandString.Append(" --prerelease")
     }
 
-    if ($x86 -or $ForceX86)
+    if ($ForceX86)
     {
         $commandString.Append(" --forcex86")
     }
