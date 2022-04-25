@@ -2,5 +2,5 @@
 
 function Install-Cygwin
 {
-    Install-ChocolateyPackage -Package "Cygwin" -Yes
+    Install-ChocolateyPackage -Package "Cygwin" -ConfirmAllPrompts
 }
