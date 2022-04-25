@@ -6,8 +6,6 @@ function Install-CygwinPackage
     param(
         [Parameter(Mandatory = $false)]$Package,
         [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$Help,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$Debug,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$Verbose,
         [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$Trace,
         [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$NoColor,
         [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$AcceptLicense,
