@@ -10,7 +10,7 @@ function Add-CygwinToPath
     Install-Chocolatey
 
     # Importing Chocolatey Installer Module
-    Import-Module -Name "$($env:ChocolateyInstall)\helpers\chocolateyInstaller.psm1"
+    Import-Module -Name ([System.IO.Path]::Combine($env:ChocolateyInstall, "helpers", "chocolateyInstaller.psm1"))
 
     # Adding Cygwin bin folder to system path
     Install-ChocolateyPath -PathToInstall "$($env:SystemDrive)\tools\cygwin\bin"
