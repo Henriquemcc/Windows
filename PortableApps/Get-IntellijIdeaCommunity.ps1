@@ -13,6 +13,6 @@ New-Item -Path:$extractDestinationPath -ItemType Directory -Force
 Expand-Archive -Path:$downloadDestinationFilePath -DestinationPath:$extractDestinationPath -Force
 
 # Creating Shortcut
-$shortcutFilePath = [System.IO.Path]::Combine($env:APPDATA, "Microsoft", "Windows", "Start Menu", "Programas", "IntelliJ IDEA Community.lnk")
+$shortcutFilePath = [System.IO.Path]::Combine($env:APPDATA, "Microsoft", "Windows", "Start Menu", "Programs", "IntelliJ IDEA Community.lnk")
 $intellijIdeaExecutablePath = [System.IO.Path]::Combine($extractDestinationPath, "bin", "idea64.exe")
 New-Item -Path:$shortcutFilePath -ItemType SymbolicLink -Value:$intellijIdeaExecutablePath -Force

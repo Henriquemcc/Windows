@@ -24,6 +24,6 @@ New-Item -Path:$extractDestinationPath -ItemType Directory -Force
 Expand-Archive -Path:$downloadDestinationFilePath -DestinationPath:$extractDestinationPath -Force
 
 # Creating Shortcut
-$shortcutFilePath = [System.IO.Path]::Combine($env:APPDATA, "Microsoft", "Windows", "Start Menu", "Programas", "Visual Studio Code.lnk")
+$shortcutFilePath = [System.IO.Path]::Combine($env:APPDATA, "Microsoft", "Windows", "Start Menu", "Programs", "Visual Studio Code.lnk")
 $visualStudioCodeExecutablePath = [System.IO.Path]::Combine($extractDestinationPath, "Code.exe")
 New-Item -Path:$shortcutFilePath -ItemType SymbolicLink -Value:$visualStudioCodeExecutablePath -Force
