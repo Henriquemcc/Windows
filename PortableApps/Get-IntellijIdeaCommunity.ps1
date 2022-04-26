@@ -1,4 +1,4 @@
-$url = "https://download.jetbrains.com/idea/ideaIC-2022.1.win.zip"
+﻿$url = "https://download.jetbrains.com/idea/ideaIC-2022.1.win.zip"
 
 # Downloading IntelliJ idea
 $downloadDestinationFilePath = [System.IO.Path]::Combine($env:TEMP, "ideaIC.zip")

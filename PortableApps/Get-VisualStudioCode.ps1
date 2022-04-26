@@ -1,4 +1,4 @@
-$url = if ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "amd64")
+﻿$url = if ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "amd64")
 {
     "https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-archive"
 }

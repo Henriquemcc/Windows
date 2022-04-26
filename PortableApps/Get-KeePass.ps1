@@ -1,4 +1,4 @@
-$url = "https://sonik.dl.sourceforge.net/project/keepass/KeePass%202.x/2.50/KeePass-2.50.zip"
+﻿$url = "https://sonik.dl.sourceforge.net/project/keepass/KeePass%202.x/2.50/KeePass-2.50.zip"
 
 # Downloading KeePass
 $downloadDestinationFilePath = [System.IO.Path]::Combine($env:TEMP, "KeePass-2.50.zip")
