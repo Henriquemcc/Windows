@@ -1,13 +1,13 @@
 Import-Module -Name ([System.IO.Path]::Combine((Split-Path -Path (Split-Path -Path $MyInvocation.MyCommand.Definition -Parent) -Parent), "functions", "Util", "Get-FileNameFromUrl.ps1"))
 
 function Get-FirefoxEsrUrl {
-    if ($env:PROCESSOR_ARCHITECTURE -eq "AMD64") {
+    if ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "amd64") {
         return "https://download.mozilla.org/?product=firefox-esr-latest-ssl&os=win64"
     }
-    elseif ($env:PROCESSOR_ARCHITECTURE -eq "x86") {
+    elseif ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "x86") {
         return "https://download.mozilla.org/?product=firefox-esr-latest-ssl&os=win"
     }
-    elseif ($env:PROCESSOR_ARCHITECTURE -eq "ARM64") {
+    elseif ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "arm64") {
         return "https://download.mozilla.org/?product=firefox-esr-latest-ssl&os=win64-aarch64"
     }
     else {
