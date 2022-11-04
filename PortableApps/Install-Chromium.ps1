@@ -34,14 +34,14 @@ New-Item -Path:$installationDirectoryPath -ItemType Directory -ErrorAction Silen
 # Extracting Chromium
 Expand-Archive -Path:$downloadFilePath -DestinationPath:$installationDirectoryPath
 
-# Creating Shotcut Normal
+# Creating Shortcut Normal
 $WScriptShell = New-Object -ComObject "WScript.Shell"
 $shortcut = $WScriptShell.CreateShortcut($normalShortcutDestinationPath)
 $shortcut.TargetPath = $executablePath
 $shortcut.Save()
 $shortcut = $null
 
-# Creating Shotcut Guest
+# Creating Shortcut Guest
 $shortcut = $WScriptShell.CreateShortcut($guestShortcutDestinationPath)
 $shortcut.TargetPath = $executablePath
 $shortcut.Arguments = "--guest"
