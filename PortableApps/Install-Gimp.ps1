@@ -10,7 +10,7 @@ $downloadFilePath = [System.IO.Path]::Combine($downloadDirectoryPath, $downloadF
 Invoke-WebRequest -Uri:$url -OutFile:$downloadFilePath
 
 # Installation variables
-$silentInstallArgs = @("/SILENT", "/SUPRESSMSGBOXES", "/CURRENTUSER")
+$silentInstallArgs = @("/VERYSILENT", "/SUPRESSMSGBOXES", "/CURRENTUSER")
 
 # Installing Gimp
 $process = [System.Diagnostics.Process]::new()
