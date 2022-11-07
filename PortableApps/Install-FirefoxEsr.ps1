@@ -26,7 +26,7 @@ Invoke-WebRequest -Uri:$url -OutFile:$downloadFilePath
 
 # Installation variables
 $installationDirectory = [System.IO.Path]::Combine($env:LOCALAPPDATA, "Mozilla Firefox")
-$silentInstallArgs = @("/S", "/InstallDirectoryPath=$installationDirectory")
+$silentInstallArgs = @("/S", "/InstallDirectoryPath=`"$($installationDirectory)`"")
 
 # Installing Firefox
 $process = [System.Diagnostics.Process]::new()
