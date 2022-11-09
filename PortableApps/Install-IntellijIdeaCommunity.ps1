@@ -11,7 +11,21 @@ Invoke-WebRequest -Uri:$url -OutFile:$downloadFilePath
 $configurationFilePath = [System.IO.Path]::Combine($env:TMP, "silent.config")
 $configurationFileString = [System.Text.StringBuilder]::new()
 $configurationFileString.AppendLine("mode=user")
-$configurationFileString.Append("updatePATH=1")
+if ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "amd64") {
+    $configurationFileString.AppendLine("launcher32=0")
+    $configurationFileString.AppendLine("launcher64=1")
+}
+elseif ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "x86") {
+    $configurationFileString.AppendLine("launcher32=1")
+    $configurationFileString.AppendLine("launcher64=0")
+}
+$configurationFileString.AppendLine("updatePATH=1")
+$configurationFileString.AppendLine("updateContextMenu=0")
+$configurationFileString.AppendLine("jre32=0")
+$configurationFileString.AppendLine("regenerationSharedArchive=1")
+$configurationFileString.AppendLine(".java=0")
+$configurationFileString.AppendLine(".groovy=0")
+$configurationFileString.Append(".kt=0")
 $configurationFile = [System.IO.File]::Open([System.IO.Path]::Combine($configurationFilePath), [System.IO.FileAccess]::Write)
 $configurationFileStream = [System.IO.StreamWriter]::new($configurationFile)
 $configurationFileStream.Write($configurationFileString.ToString())
