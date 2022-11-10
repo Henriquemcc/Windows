@@ -31,7 +31,7 @@ while ($opcao -ne 0) {
     }
 
     elseif ($opcao -eq 3) {
-        .\RemoverBloatware.ps1
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition), "Menu", "RemoverBloatware.ps1"))
     }
 
     elseif ($opcao -eq 4) {

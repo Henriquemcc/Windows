@@ -36,7 +36,7 @@ while ($opcao -ne 0) {
     }
 
     elseif ($opcao -eq 4) {
-        .\ReinstalarBloatware.ps1
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition), "Menu", "ReinstalarBloatware.ps1"))
     }
 
     elseif ($opcao -eq 5) {
