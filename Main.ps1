@@ -29,7 +29,7 @@ while ($opcao -ne 0) {
     }
 
     elseif ($opcao -eq 2) {
-        .\Atualizar.ps1
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition), "Menu", "Atualizar.ps1"))
     }
 
     elseif ($opcao -eq 3) {
