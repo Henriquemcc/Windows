@@ -3,7 +3,7 @@
 function ObterOpcao {
 
     $_opcao = -1
-    while ($_opcao -lt 0 -or $_opcao -gt 7) {
+    while ($_opcao -lt 0 -or $_opcao -gt 8) {
         Write-Host -Object "O que deseja fazer?"
         Write-Host -Object "0 - Sair"
         Write-Host -Object "1 - Instalar"
@@ -13,6 +13,7 @@ function ObterOpcao {
         Write-Host -Object "5 - Remover"
         Write-Host -Object "6 - Configurar"
         Write-Host -Object "7 - Parar"
+        Write-Host -Object "8 - Portable Apps"
         $_opcao = Read-Int32
     }
 
@@ -49,5 +50,9 @@ while ($opcao -ne 0) {
 
     elseif ($opcao -eq 7) {
         .\Parar.ps1
+    }
+
+    elseif ($opcao -eq 8) {
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition), "Menu", "PortableApps", "Principal.ps1"))
     }
 }
