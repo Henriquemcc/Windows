@@ -45,7 +45,7 @@ while ($opcao -ne 0) {
     }
 
     elseif ($opcao -eq 6) {
-        .\Configurar.ps1
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition), "Menu", "Configurar.ps1"))
     }
 
     elseif ($opcao -eq 7) {
