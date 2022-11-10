@@ -25,7 +25,7 @@ while ($opcao -ne 0) {
     $opcao = ObterOpcao
 
     if ($opcao -eq 1) {
-        .\Instalar.ps1
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition), "Menu", "Instalar.ps1"))
     }
 
     elseif ($opcao -eq 2) {
