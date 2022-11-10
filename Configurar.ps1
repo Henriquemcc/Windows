@@ -23,6 +23,6 @@ while ($opcao -ne 0) {
     }
 
     elseif ($opcao -eq 2) {
-        .\ConfigurarOpenSshServer.ps1
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition), "Menu", "ConfigurarOpenSshServer.ps1"))
     }
 }
