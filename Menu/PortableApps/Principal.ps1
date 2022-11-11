@@ -3,7 +3,7 @@ Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryNam
 function ObterOpcao {
 
     $_opcao = -1
-    while ($_opcao -lt 0 -or $_opcao -gt 12) {
+    while ($_opcao -lt 0 -or $_opcao -gt 13) {
         Write-Host -Object "O que deseja fazer?"
         Write-Host -Object "0 - Sair"
         Write-Host -Object "1 - Instalar Chocolatey"
@@ -17,7 +17,8 @@ function ObterOpcao {
         Write-Host -Object "9 - Instalar KeePass"
         Write-Host -Object "10 - Instalar LibreOffice"
         Write-Host -Object "11 - Instalar Nomacs"
-        Write-Host -Object "12 - Instalar Visual Studio Code"
+        Write-Host -Object "12 - Instalar Peazip"
+        Write-Host -Object "13 - Instalar Visual Studio Code"
         
         $_opcao = Read-Int32
     }
@@ -74,6 +75,10 @@ while ($opcao -ne 0) {
     }
 
     elseif ($opcao -eq 12) {
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition))), "PortableApps", "Install-Peazip.ps1"))
+    }
+
+    elseif ($opcao -eq 13) {
         & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition))), "PortableApps", "Install-VisualStudioCode.ps1"))
     }
 }
