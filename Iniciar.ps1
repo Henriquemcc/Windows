@@ -4,5 +4,4 @@ $downloadFilePath = [System.IO.Path]::Combine($env:APPDATA, $downloadFileName)
 Invoke-WebRequest -Uri $url -OutFile $downloadFilePath
 Expand-Archive -Path $downloadFilePath -DestinationPath $env:APPDATA -Force
 $directory = [System.IO.Path]::Combine($env:APPDATA, $downloadFileName.Substring(0, $downloadFileName.Length - ".zip".Length))
-Set-Location -Path $directory
-.\Main.ps1
+& ([System.IO.Path]::Combine($directory, "Menu", "Principal.ps1"))
