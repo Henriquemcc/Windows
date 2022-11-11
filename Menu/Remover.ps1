@@ -1,5 +1,4 @@
 ﻿Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "functions", "MyIO", "MyIO.psm1"))
-Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "functions", "Chocolatey", "Chocolatey.psm1"))
 
 function ObterOpcao {
 
@@ -27,6 +26,7 @@ while ($opcao -ne 0) {
     }
 
     elseif ($opcao -eq 2) {
+        Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "functions", "Chocolatey", "Chocolatey.psm1"))
         Uninstall-Chocolatey
     }
 
