@@ -1,4 +1,4 @@
-﻿Import-Module -Name ([System.IO.Path]::Combine((Split-Path -Path $MyInvocation.MyCommand.Definition -Parent), "..", "Chocolatey", "Chocolatey.psm1"))
+﻿Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "Chocolatey", "Install-ChocolateyPackage.ps1")) -Global
 
 function Install-Ccleaner
 {
@@ -9,9 +9,6 @@ function Install-Ccleaner
         Installs Ccleaner.
     #>
 
-    # Installing Chocolatey if it is not installed
-    Install-Chocolatey
-
     # Installing Ccleaner
-    choco install ccleaner --yes
+    Install-ChocolateyPackage -Package "ccleaner" -ConfirmAllPrompts
 }
