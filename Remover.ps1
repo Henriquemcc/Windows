@@ -35,6 +35,7 @@ while ($opcao -ne 0) {
     }
 
     elseif ($opcao -eq 4) {
-        .\Uninstall-OpenSshServer.ps1
+        Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition), "functions", "OpenSshServer", "Uninstall-OpenSshServer.ps1"))
+        Uninstall-OpenSshServer
     }
 }
