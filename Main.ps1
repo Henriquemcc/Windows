@@ -41,7 +41,7 @@ while ($opcao -ne 0) {
     }
 
     elseif ($opcao -eq 5) {
-        .\Remover.ps1
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition), "Menu", "Remover.ps1"))
     }
 
     elseif ($opcao -eq 6) {
