@@ -33,7 +33,7 @@ while ($opcao -ne 0) {
     }
 
     elseif ($opcao -eq 3) {
-        .\Reparar.ps1
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition), "Menu", "Reparar.ps1"))
     }
 
     elseif ($opcao -eq 4) {
