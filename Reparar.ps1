@@ -1,5 +1,5 @@
-﻿Import-Module -Name ([System.IO.Path]::Combine((Split-Path -Path $MyInvocation.MyCommand.Definition -Parent), "functions", "MyIO", "MyIO.psm1"))
-Import-Module -Name ([System.IO.Path]::Combine((Split-Path -Path $MyInvocation.MyCommand.Definition -Parent), "functions", "RepairWindows", "RepairWindows.psm1"))
+﻿Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition), "functions", "MyIO", "MyIO.psm1"))
+Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition), "functions", "RepairWindows", "RepairWindows.psm1"))
 
 function ObterOpcao {
 
@@ -45,6 +45,6 @@ while ($opcao -ne 0) {
     }
 
     elseif ($opcao -eq 6) {
-        .\Limpar.ps1
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition), "Menu", "Limpar.ps1"))
     }
 }
