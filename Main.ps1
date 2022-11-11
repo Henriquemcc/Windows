@@ -49,7 +49,7 @@ while ($opcao -ne 0) {
     }
 
     elseif ($opcao -eq 7) {
-        .\Parar.ps1
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition), "Menu", "Parar.ps1"))
     }
 
     elseif ($opcao -eq 8) {
