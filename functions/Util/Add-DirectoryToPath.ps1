@@ -32,7 +32,7 @@ function Add-DirectoryToPath {
     # Getting path environment variable
     $envPath = [System.Environment]::GetEnvironmentVariable("Path", $target)
 
-    if (-not ($envPath.Contains($DirectoryPath))) {
+    if (-not ($envPath.ToLower().Contains($DirectoryPath.ToLower()))) {
 
         # Adding new path to string
         if ($envPath.Length -gt 0 -and (-not $envPath.EndsWith(";"))) {
