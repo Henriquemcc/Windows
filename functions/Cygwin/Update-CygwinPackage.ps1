@@ -1,6 +1,7 @@
 Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition), "Get-CygwinInstallerUrl.ps1")) -Global
 Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition), "Get-CygwinMirror.ps1")) -Global
 Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition), "Get-CygwinRootPath.ps1")) -Global
+Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition), "Add-CygwinToPath.ps1")) -Global
 Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "Util", "Test-AdministratorPrivileges.ps1")) -Global
 
 function Update-CygwinPackage
@@ -53,4 +54,7 @@ function Update-CygwinPackage
     $process.StartInfo.UseShellExecute = $true
     $process.Start()
     $process.WaitForExit()
+
+    # Adding Cygwin to path
+    Add-CygwinToPath
 }
