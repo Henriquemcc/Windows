@@ -1,385 +1,80 @@
-﻿Import-Module -Name ([System.IO.Path]::Combine((Split-Path -Path $MyInvocation.MyCommand.Definition -Parent), "..", "Chocolatey", "Install-Chocolatey.ps1"))
-Import-Module -Name ([System.IO.Path]::Combine((Split-Path -Path $MyInvocation.MyCommand.Definition -Parent), "Install-Cygwin.ps1"))
+Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition), "Get-CygwinInstallerUrl.ps1")) -Global
+Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition), "Get-CygwinMirror.ps1")) -Global
+Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition), "Get-CygwinRootPath.ps1")) -Global
+Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "Util", "Test-AdministratorPrivileges.ps1")) -Global
 
 function Install-CygwinPackage
 {
     param(
-        [Parameter(Mandatory = $false)]$Package,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$Help,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$Trace,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$NoColor,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$AcceptLicense,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$Yes,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$Confirm,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$Force,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$NoOp,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$WhatIf,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$LimitOutput,
-        [Parameter(Mandatory = $false)]$ExecutionTimeout,
-        [Parameter(Mandatory = $false)]$CacheLocation,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$AllowUnofficialBuild,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$FailOnStandardError,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$UseSystemPowerShell,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$NoProgress,
-        [Parameter(Mandatory = $false)]$Proxy,
-        [Parameter(Mandatory = $false)]$ProxyUser,
-        [Parameter(Mandatory = $false)]$ProxyPassword,
-        [Parameter(Mandatory = $false)]$ProxyBypassList,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$ProxyBypassOnLocal,
-        [Parameter(Mandatory = $false)]$LogFile,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$SkipCompatibilityChecks,
-        [Parameter(Mandatory = $false)]$Version,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$PreRelease,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$x86,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$ForceX86,
-        [Parameter(Mandatory = $false)]$InstallArguments,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$OverrideArguments,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$NotSilent,
-        [Parameter(Mandatory = $false)]$PackageParameters,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$ApplyInstallArgumentsToDependencies,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$ApplyPackageParametersToDependencies,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$AllowDowngrade,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$AllowMultipleVersions,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$IgnoreDependencies,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$ForceDependencies,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$SkipPowerShell,
-        [Parameter(Mandatory = $false)]$User,
-        [Parameter(Mandatory = $false)]$Password,
-        [Parameter(Mandatory = $false)]$ClientCertificate,
-        [Parameter(Mandatory = $false)]$CertificatePassword,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$IgnoreChecksums,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$AllowEmptyChecksums,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$AllowEmptyChecksumsSecure,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$RequireChecksums,
-        [Parameter(Mandatory = $false)]$DownloadChecksum,
-        [Parameter(Mandatory = $false)]$DownloadChecksum64bit,
-        [Parameter(Mandatory = $false)]$DownloadChecksumType,
-        [Parameter(Mandatory = $false)]$DownloadChecksumType64bit,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$IgnorePackageExitCodes,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$UsePackageExitCodes,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$StopOnFirstPackageFailure,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$ExitWhenRebootDetected,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$IgnoreDetectedReboot,
-        [Parameter(Mandatory = $false)][System.Management.Automation.SwitchParameter]$DisablePackageRepositoryOptimizations
+        # Packages to be installed.
+        [Parameter(Mandatory = $false)]$Packages,
+
+        # Categories to be installed.
+        [Parameter(Mandatory = $false)]$Categories
     )
 
-    # Installing Chocolatey
-    Install-Chocolatey
+    # Download Variables
+    $url = Get-CygwinInstallerUrl
+    $downloadFileName = [System.IO.Path]::GetFileName($url)
+    $downloadDirectoryPath = $env:TMP
+    $downloadFilePath = [System.IO.Path]::Combine($downloadDirectoryPath, $downloadFileName)
 
-    # Installing Cygwin
-    Install-Cygwin
+    # Downloading
+    Invoke-WebRequest -Uri:$url -OutFile:$downloadFilePath
 
-    # Setting source to Cygwin
-    $Source = "cygwin"
+    # Installation variables
+    $silentInstallArgs = [System.Collections.ArrayList]::new()
 
-    # Converting array to string
-    if ($Package -is [System.Array])
+    # Architecture
+    $architeture = if ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "amd64") {"x86_64"} elseif ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "x86") {"x86"}
+    $silentInstallArgs.Add("--arch $architeture")
+
+    # Package
+    if ($Packages)
     {
-        $Package = $Package -join " "
+        if ($Packages -isnot [System.String])
+        {
+            $Packages = $Packages -join " "
+        }
+        $silentInstallArgs.Add("--packages $Packages")
     }
 
-    if ($ProxyBypassList -is [System.Array])
+    # Categories
+    if ($Categories)
     {
-        $ProxyBypassList = $ProxyBypassList -join " "
+        if ($Categories -isnot [System.String])
+        {
+            $Categories = $Categories -join " "
+        }
+        $silentInstallArgs.Add("--categories $Categories")
     }
 
-    if ($InstallArguments -is [System.Array])
+    # Quiet Mode
+    $silentInstallArgs.Add("--quiet-mode")
+
+    # No-Admin
+    if (-not (Test-AdministratorPrivileges))
     {
-        $InstallArguments = $InstallArguments -join " "
+        $silentInstallArgs.Add("--no-admin")
     }
 
-    if ($PackageParameters -is [System.Array]) {
-        $PackageParameters = $PackageParameters -join " "
-    }
+    # Mirror
+    $mirror = Get-CygwinMirror
+    $silentInstallArgs.Add("--site $mirror")
 
-    # Creating command string
-    $commandString = [System.Text.StringBuilder]::new()
-    $commandString.Append("choco install ")
-    $commandString.Append($Package)
+    # Root Path
+    $rootPath = Get-CygwinRootPath
+    $silentInstallArgs.Add("--root $rootPath")
 
-    if ($Help)
-    {
-        $commandString.Append(" --help")
-    }
+    # Local Package Dir
+    $localPackageDir = $env:TEMP
+    $silentInstallArgs.Add("--local-package-dir $localPackageDir")
 
-    if ($Debug)
-    {
-        $commandString.Append(" --debug")
-    }
-
-    if ($Verbose)
-    {
-        $commandString.Append(" --verbose")
-    }
-
-    if ($Trace)
-    {
-        $commandString.Append(" --trace")
-    }
-
-    if ($NoColor)
-    {
-        $commandString.Append(" --no-color")
-    }
-
-    if ($AcceptLicense)
-    {
-        $commandString.Append(" --accept-license")
-    }
-
-    if ($Yes -or $Confirm)
-    {
-        $commandString.Append(" --confirm")
-    }
-
-    if ($Force)
-    {
-        $commandString.Append(" --force")
-    }
-
-    if ($NoOp -or $WhatIf)
-    {
-        $commandString.Append(" --what-if")
-    }
-
-    if ($LimitOutput)
-    {
-        $commandString.Append(" --limit-output")
-    }
-
-    if ($ExecutionTimeout)
-    {
-        $commandString.Append(" --execution-timeout=$ExecutionTimeout")
-    }
-
-    if ($CacheLocation)
-    {
-        $commandString.Append(" --cache-location=$CacheLocation")
-    }
-
-    if ($AllowUnofficialBuild)
-    {
-        $commandString.Append(" --allow-unofficial-build")
-    }
-
-    if ($FailOnStandardError)
-    {
-        $commandString.Append(" --fail-on-standard-error")
-    }
-
-    if ($UseSystemPowerShell)
-    {
-        $commandString.Append(" --use-system-powershell")
-    }
-
-    if ($NoProgress)
-    {
-        $commandString.Append(" --no-progress")
-    }
-
-    if ($Proxy)
-    {
-        $commandString.Append(" --proxy=$Proxy")
-    }
-
-    if ($ProxyUser)
-    {
-        $commandString.Append(" --proxy-user=$ProxyUser")
-    }
-
-    if ($ProxyPassword)
-    {
-        $commandString.Append(" --proxy-password=$ProxyPassword")
-    }
-
-    if ($ProxyBypassList)
-    {
-        $commandString.Append(" --proxy-bypass-list=$ProxyBypassList")
-    }
-
-    if ($ProxyBypassOnLocal)
-    {
-        $commandString.Append(" --proxy-bypass-on-local")
-    }
-
-    if ($LogFile)
-    {
-        $commandString.Append(" --log-file=$LogFile")
-    }
-
-    if ($SkipCompatibilityChecks)
-    {
-        $commandString.Append(" --skip-compatibility-checks")
-    }
-
-    if ($Source)
-    {
-        $commandString.Append(" --source=$Source")
-    }
-
-    if ($Version)
-    {
-        $commandString.Append(" --version=$Version")
-    }
-
-    if ($PreRelease)
-    {
-        $commandString.Append(" --prerelease")
-    }
-
-    if ($x86 -or $ForceX86)
-    {
-        $commandString.Append(" --forcex86")
-    }
-
-    if ($InstallArguments)
-    {
-        $commandString.Append(" --install-arguments=$InstallArguments")
-    }
-
-    if ($OverrideArguments)
-    {
-        $commandString.Append(" --override-arguments")
-    }
-
-    if ($NotSilent)
-    {
-        $commandString.Append(" --not-silent")
-    }
-
-    if ($PackageParameters)
-    {
-        $commandString.Append(" --package-parameters=$PackageParameters")
-    }
-
-    if ($ApplyInstallArgumentsToDependencies)
-    {
-        $commandString.Append(" --apply-install-arguments-to-dependencies")
-    }
-
-    if ($ApplyPackageParametersToDependencies)
-    {
-        $commandString.Append(" --apply-package-parameters-to-dependencies")
-    }
-
-    if ($AllowDowngrade)
-    {
-        $commandString.Append(" --allow-downgrade")
-    }
-
-    if ($AllowMultipleVersions)
-    {
-        $commandString.Append(" --allow-multiple-versions")
-    }
-
-    if ($IgnoreDependencies)
-    {
-        $commandString.Append(" --ignore-dependencies")
-    }
-
-    if ($ForceDependencies)
-    {
-        $commandString.Append(" --force-dependencies")
-    }
-
-    if ($SkipPowerShell)
-    {
-        $commandString.Append(" --skip-powershell")
-    }
-
-    if ($User)
-    {
-        $commandString.Append(" --user=$User")
-    }
-
-    if ($Password)
-    {
-        $commandString.Append(" --password=$Password")
-    }
-
-    if ($ClientCertificate)
-    {
-        $commandString.Append(" --cert=$ClientCertificate")
-    }
-
-    if ($CertificatePassword)
-    {
-        $commandString.Append(" --certpassword=$ClientCertificate")
-    }
-
-    if ($IgnoreChecksums)
-    {
-        $commandString.Append(" --ignore-checksums")
-    }
-
-    if ($AllowEmptyChecksums)
-    {
-        $commandString.Append(" --allow-empty-checksums")
-    }
-
-    if ($AllowEmptyChecksumsSecure)
-    {
-        $commandString.Append(" --allow-empty-checksums-secure")
-    }
-
-    if ($RequireChecksums)
-    {
-        $commandString.Append(" --require-checksums")
-    }
-
-    if ($DownloadChecksum)
-    {
-        $commandString.Append(" --download-checksum=$DownloadChecksum")
-    }
-
-    if ($DownloadChecksum64bit)
-    {
-        $commandString.Append(" --download-checksum-x64=$DownloadChecksum64bit")
-    }
-
-    if ($DownloadChecksumType)
-    {
-        $commandString.Append(" --download-checksum-type=$DownloadChecksumType")
-    }
-
-    if ($DownloadChecksumType64bit)
-    {
-        $commandString.Append(" --download-checksum-type-x64=$DownloadChecksumType64bit")
-    }
-
-    if ($IgnorePackageExitCodes)
-    {
-        $commandString.Append(" --ignore-package-exit-codes")
-    }
-
-    if ($UsePackageExitCodes)
-    {
-        $commandString.Append(" --use-package-exit-codes")
-    }
-
-    if ($StopOnFirstPackageFailure)
-    {
-        $commandString.Append(" --stop-on-first-package-failure")
-    }
-
-    if ($ExitWhenRebootDetected)
-    {
-        $commandString.Append(" --exit-when-reboot-detected")
-    }
-
-    if ($IgnoreDetectedReboot)
-    {
-        $commandString.Append(" --ignore-detected-reboot")
-    }
-
-    if ($DisablePackageRepositoryOptimizations)
-    {
-        $commandString.Append(" --disable-package-repository-optimizations")
-    }
-
-    # Converting command string from StringBuilder to String
-    $commandString = $commandString.ToString()
-
-    # Running command string
-    Invoke-Expression -Command $commandString
+    # Installing Package
+    $process = [System.Diagnostics.Process]::new()
+    $process.StartInfo.FileName = $downloadFilePath
+    $process.StartInfo.Arguments = $silentInstallArgs -join " "
+    $process.StartInfo.UseShellExecute = $true
+    $process.Start()
+    $process.WaitForExit()
 }
