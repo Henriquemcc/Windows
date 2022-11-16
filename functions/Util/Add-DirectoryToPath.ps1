@@ -20,20 +20,23 @@ function Add-DirectoryToPath {
     # Getting target according to whether it has administrator privileges or not
     $target = if (Test-AdministratorPrivileges) {
         [System.EnvironmentVariableTarget]::Machine
-    } else {
+    }
+    else {
         [System.EnvironmentVariableTarget]::User
     }
 
     # Getting path environment variable
     $envPath = [System.Environment]::GetEnvironmentVariable("Path", $target)
 
-    # Adding new path to string
-    if ($envPath.Length -gt 0 -and (-not $envPath.EndsWith(";")))
-    {
-        $envPath += ";"
-    }
-    $envPath += $DirectoryPath
+    if (-not ($envPath.Contains($DirectoryPath))) {
 
-    # Setting path environment variable
-    [System.Environment]::SetEnvironmentVariable("Path", $envPath, $target)
+        # Adding new path to string
+        if ($envPath.Length -gt 0 -and (-not $envPath.EndsWith(";"))) {
+            $envPath += ";"
+        }
+        $envPath += $DirectoryPath
+
+        # Setting path environment variable
+        [System.Environment]::SetEnvironmentVariable("Path", $envPath, $target)
+    }
 }
