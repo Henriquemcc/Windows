@@ -17,6 +17,11 @@ function Add-DirectoryToPath {
         Directory C:\bin will be added to user or system 'Path' variable
     #>
 
+    if ($DirectoryPath.Contains(";"))
+    {
+        throw "DirectoryPath parameter can not contain ';'"
+    }
+
     # Getting target according to whether it has administrator privileges or not
     $target = if (Test-AdministratorPrivileges) {
         [System.EnvironmentVariableTarget]::Machine
