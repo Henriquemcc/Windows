@@ -3,15 +3,8 @@ Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryNam
 Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition), "Get-CygwinRootPath.ps1")) -Global
 Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "Util", "Test-AdministratorPrivileges.ps1")) -Global
 
-function Install-CygwinPackage
+function Update-CygwinPackage
 {
-    param(
-        # Packages to be installed.
-        [Parameter(Mandatory = $false, Position = 0)]$Packages,
-
-        # Categories to be installed.
-        [Parameter(Mandatory = $false, Position = 1)]$Categories
-    )
 
     # Download Variables
     $url = Get-CygwinInstallerUrl
@@ -28,26 +21,6 @@ function Install-CygwinPackage
     # Architecture
     $architeture = if ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "amd64") {"x86_64"} elseif ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "x86") {"x86"}
     $silentInstallArgs.Add("--arch $architeture")
-
-    # Package
-    if ($Packages)
-    {
-        if ($Packages -isnot [System.String])
-        {
-            $Packages = $Packages -join " "
-        }
-        $silentInstallArgs.Add("--packages $Packages")
-    }
-
-    # Categories
-    if ($Categories)
-    {
-        if ($Categories -isnot [System.String])
-        {
-            $Categories = $Categories -join " "
-        }
-        $silentInstallArgs.Add("--categories $Categories")
-    }
 
     # Quiet Mode
     $silentInstallArgs.Add("--quiet-mode")
@@ -69,6 +42,9 @@ function Install-CygwinPackage
     # Local Package Dir
     $localPackageDir = $env:TEMP
     $silentInstallArgs.Add("--local-package-dir $localPackageDir")
+
+    # Force Current
+    $silentInstallArgs.Add("--force-current")
 
     # Installing Package
     $process = [System.Diagnostics.Process]::new()

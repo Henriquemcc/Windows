@@ -7,10 +7,10 @@ function Uninstall-CygwinPackage
 {
     param(
         # Packages to be removed.
-        [Parameter(Mandatory = $false)]$Packages,
+        [Parameter(Mandatory = $false, Position = 0)]$Packages,
 
         # Categories to be removed.
-        [Parameter(Mandatory = $false)]$Categories
+        [Parameter(Mandatory = $false, Position = 1)]$Categories
     )
     # Download Variables
     $url = Get-CygwinInstallerUrl
