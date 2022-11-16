@@ -17,8 +17,7 @@ function Add-DirectoryToPath {
         Directory C:\bin will be added to user or system 'Path' variable
     #>
 
-    if ($DirectoryPath.Contains(";"))
-    {
+    if ($DirectoryPath.Contains(";")) {
         throw "DirectoryPath parameter can not contain ';'"
     }
 
