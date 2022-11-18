@@ -35,7 +35,7 @@ while ($opcao -ne 0)
 
     if ($opcao -eq 3)
     {
-        Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "functions", "Cygwin", "Update-CygwinPackage.ps1")) -Global
+        Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "functions", "Cygwin", "Update-CygwinPackage.ps1")) -Global -Force
         Update-CygwinPackage
     }
 }

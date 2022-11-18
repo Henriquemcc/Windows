@@ -68,7 +68,7 @@ function Aplicar {
             $pacotes = $pacotes[0]
         }
 
-        Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($script:MyInvocation.MyCommand.Definition))), "functions", "Cygwin", "Uninstall-CygwinPackage.ps1")) -Global
+        Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($script:MyInvocation.MyCommand.Definition))), "functions", "Cygwin", "Uninstall-CygwinPackage.ps1")) -Global -Force
         Uninstall-CygwinPackage -Packages:$pacotes
     }
     catch {

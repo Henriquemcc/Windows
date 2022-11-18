@@ -1,4 +1,4 @@
-﻿Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition), "Install-Chocolatey.ps1")) -Global
+﻿Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition), "Install-Chocolatey.ps1")) -Global -Force
 
 function Uninstall-ChocolateyPackage
 {
