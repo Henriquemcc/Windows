@@ -3,7 +3,7 @@ Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryNam
 function ObterOpcao {
 
     $_opcao = -1
-    while ($_opcao -lt 0 -or $_opcao -gt 8) {
+    while ($_opcao -lt 0 -or $_opcao -gt 9) {
         Write-Host -Object "O que deseja fazer?"
         Write-Host -Object "0 - Sair"
         Write-Host -Object "1 - Instalar"
@@ -14,6 +14,7 @@ function ObterOpcao {
         Write-Host -Object "6 - Configurar"
         Write-Host -Object "7 - Parar"
         Write-Host -Object "8 - Portable Apps"
+        Write-Host -Object "9 - Cygwin"
         $_opcao = Read-Int32
     }
 
@@ -54,5 +55,9 @@ while ($opcao -ne 0) {
 
     elseif ($opcao -eq 8) {
         & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition), "PortableApps", "Principal.ps1"))
+    }
+
+    elseif ($opcao -eq 9) {
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition), "Cygwin", "Principal.ps1"))
     }
 }
