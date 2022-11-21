@@ -3,7 +3,7 @@ Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryNam
 function ObterOpcao {
 
     $_opcao = -1
-    while ($_opcao -lt 0 -or $_opcao -gt 14) {
+    while ($_opcao -lt 0 -or $_opcao -gt 15) {
         Write-Host -Object "O que deseja fazer?"
         Write-Host -Object "0 - Sair"
         Write-Host -Object "1 - Instalar Chocolatey"
@@ -15,11 +15,12 @@ function ObterOpcao {
         Write-Host -Object "7 - Instalar Git"
         Write-Host -Object "8 - Instalar IntelliJ IDEA"
         Write-Host -Object "9 - Instalar KeePass"
-        Write-Host -Object "10 - Instalar LibreOffice"
-        Write-Host -Object "11 - Instalar Nomacs"
-        Write-Host -Object "12 - Instalar Peazip"
-        Write-Host -Object "13 - Instalar Python"
-        Write-Host -Object "14 - Instalar Visual Studio Code"
+        Write-Host -Object "10 - Instalar KeePassXC"
+        Write-Host -Object "11 - Instalar LibreOffice"
+        Write-Host -Object "12 - Instalar Nomacs"
+        Write-Host -Object "13 - Instalar Peazip"
+        Write-Host -Object "14 - Instalar Python"
+        Write-Host -Object "15 - Instalar Visual Studio Code"
         
         $_opcao = Read-Int32
     }
@@ -68,22 +69,26 @@ while ($opcao -ne 0) {
     }
 
     elseif ($opcao -eq 10) {
-        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition))), "PortableApps", "Install-LibreOffice.ps1"))
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition))), "PortableApps", "Install-KeePassXc.ps1"))
     }
 
     elseif ($opcao -eq 11) {
-        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition))), "PortableApps", "Install-Nomacs.ps1"))
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition))), "PortableApps", "Install-LibreOffice.ps1"))
     }
 
     elseif ($opcao -eq 12) {
-        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition))), "PortableApps", "Install-Peazip.ps1"))
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition))), "PortableApps", "Install-Nomacs.ps1"))
     }
 
     elseif ($opcao -eq 13) {
-        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition))), "PortableApps", "Install-Python.ps1"))
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition))), "PortableApps", "Install-Peazip.ps1"))
     }
 
     elseif ($opcao -eq 14) {
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition))), "PortableApps", "Install-Python.ps1"))
+    }
+
+    elseif ($opcao -eq 15) {
         & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition))), "PortableApps", "Install-VisualStudioCode.ps1"))
     }
 }
