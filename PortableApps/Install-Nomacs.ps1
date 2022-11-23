@@ -1,4 +1,4 @@
-# Download Variables
+﻿# Download Variables
 $url = "https://github.com/nomacs/nomacs/releases/latest/download/nomacs-setup-x64.exe"
 $downloadFileName = [System.IO.Path]::GetFileName($url)
 $downloadDirectoryPath = $env:TMP

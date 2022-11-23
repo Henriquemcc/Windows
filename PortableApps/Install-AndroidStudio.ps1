@@ -1,4 +1,4 @@
-function GetAndroidStudioUrl {
+﻿function GetAndroidStudioUrl {
     if ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "amd64") {
         return "https://redirector.gvt1.com/edgedl/android/studio/ide-zips/2021.3.1.17/android-studio-2021.3.1.17-windows.zip"
     }

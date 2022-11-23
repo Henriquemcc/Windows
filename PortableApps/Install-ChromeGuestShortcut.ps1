@@ -1,4 +1,4 @@
-function Get-ChromeExecutable {
+﻿function Get-ChromeExecutable {
 
     $chromeExecutableLocations = @(
         [System.IO.Path]::Combine($env:APPDATA, "Google", "Chrome", "Application", "chrome.exe"),

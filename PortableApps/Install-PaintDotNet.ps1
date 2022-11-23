@@ -1,4 +1,4 @@
-function GetPaintDotNetUrl {
+﻿function GetPaintDotNetUrl {
     if ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "amd64") {
         return "https://github.com/paintdotnet/release/releases/download/v4.3.12/paint.net.4.3.12.portable.x64.zip"
     }

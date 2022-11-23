@@ -1,4 +1,4 @@
-function Get-ChildPath
+﻿function Get-ChildPath
 {
     param(
         [Parameter(Mandatory = $true, Position = 0)][System.String]$FullPath,

@@ -1,4 +1,4 @@
-Import-Module -Name ([System.IO.Path]::Combine((Split-Path -Path (Split-Path -Path $MyInvocation.MyCommand.Definition -Parent) -Parent), "functions", "Util", "Get-FileNameFromUrl.ps1"))
+﻿Import-Module -Name ([System.IO.Path]::Combine((Split-Path -Path (Split-Path -Path $MyInvocation.MyCommand.Definition -Parent) -Parent), "functions", "Util", "Get-FileNameFromUrl.ps1"))
 
 function Get-FirefoxEsrUrl {
     if ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "amd64") {

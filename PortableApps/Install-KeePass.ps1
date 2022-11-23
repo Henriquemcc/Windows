@@ -1,4 +1,4 @@
-Import-Module -Name ([System.IO.Path]::Combine((Split-Path -Path (Split-Path -Path $MyInvocation.MyCommand.Definition -Parent) -Parent), "functions", "Util", "Get-FileNameFromUrl.ps1"))
+﻿Import-Module -Name ([System.IO.Path]::Combine((Split-Path -Path (Split-Path -Path $MyInvocation.MyCommand.Definition -Parent) -Parent), "functions", "Util", "Get-FileNameFromUrl.ps1"))
 
 # Download Variables
 $url = "https://sonik.dl.sourceforge.net/project/keepass/KeePass%202.x/2.52/KeePass-2.52.zip"

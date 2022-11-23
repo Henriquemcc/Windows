@@ -1,4 +1,4 @@
-function GetPythonUrl {
+﻿function GetPythonUrl {
     if ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "amd64") {
         return "https://www.python.org/ftp/python/3.11.0/python-3.11.0-amd64.exe"
     }

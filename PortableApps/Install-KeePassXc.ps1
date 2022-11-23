@@ -1,4 +1,4 @@
-function GetKeePassXcUrl {
+﻿function GetKeePassXcUrl {
     if ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "amd64") {
         return "https://github.com/keepassxreboot/keepassxc/releases/download/2.7.4/KeePassXC-2.7.4-Win64.zip"
     }

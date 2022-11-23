@@ -1,4 +1,4 @@
-param (
+﻿param (
     # JDK Version
     [Parameter(Mandatory = $false)][System.Int16]$Version = 8
 )

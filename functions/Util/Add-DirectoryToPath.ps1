@@ -1,4 +1,4 @@
-Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition), "Test-AdministratorPrivileges.ps1")) -Global -Force
+﻿Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition), "Test-AdministratorPrivileges.ps1")) -Global -Force
 
 function Add-DirectoryToPath {
     param(

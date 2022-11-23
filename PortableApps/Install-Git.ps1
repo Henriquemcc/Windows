@@ -1,4 +1,4 @@
-function Get-GitUrl {
+﻿function Get-GitUrl {
     if ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "amd64") {
         return "https://github.com/git-for-windows/git/releases/download/v2.38.1.windows.1/Git-2.38.1-64-bit.exe"
     }

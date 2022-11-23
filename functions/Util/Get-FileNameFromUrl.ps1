@@ -1,4 +1,4 @@
-function Get-FileNameFromUrl{
+﻿function Get-FileNameFromUrl{
     param (
         [Parameter(Mandatory=$true)][System.String]$Url
     )

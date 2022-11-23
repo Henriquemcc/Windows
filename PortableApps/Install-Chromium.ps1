@@ -1,4 +1,4 @@
-function Get-ChromiumUrl {
+﻿function Get-ChromiumUrl {
     if ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "amd64") {
         return "https://download-chromium.appspot.com/dl/Win_x64?type=snapshots"
     }

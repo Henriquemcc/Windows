@@ -1,4 +1,4 @@
-function GetPeazipUrl {
+﻿function GetPeazipUrl {
     if ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "amd64") {
         return "https://github.com/peazip/PeaZip/releases/download/8.9.0/peazip_portable-8.9.0.WIN64.zip"
     }

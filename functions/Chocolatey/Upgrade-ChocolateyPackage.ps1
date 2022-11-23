@@ -1,4 +1,4 @@
-Import-Module -Name ([System.IO.Path]::Combine((Split-Path -Path $MyInvocation.MyCommand.Definition -Parent), "Install-Chocolatey.ps1")) -Global -Force
+﻿Import-Module -Name ([System.IO.Path]::Combine((Split-Path -Path $MyInvocation.MyCommand.Definition -Parent), "Install-Chocolatey.ps1")) -Global -Force
 
 function Upgrade-ChocolateyPackage
 {

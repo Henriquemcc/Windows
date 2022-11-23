@@ -1,4 +1,4 @@
-class MirrorObject:System.IComparable {
+﻿class MirrorObject:System.IComparable {
 
     <#
     .SYNOPSIS

@@ -1,4 +1,4 @@
-# Download Variables
+﻿# Download Variables
 $url = "https://download.jetbrains.com/idea/ideaIC-2022.2.3.exe"
 $downloadFileName = [System.IO.Path]::GetFileName($url)
 $downloadDirectoryPath = $env:TMP

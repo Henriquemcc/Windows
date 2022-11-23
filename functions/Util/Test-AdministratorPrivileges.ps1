@@ -1,4 +1,4 @@
-function Test-AdministratorPrivileges {
+﻿function Test-AdministratorPrivileges {
 
     <#
     .SYNOPSIS

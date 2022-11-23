@@ -1,4 +1,4 @@
-if (-not (Get-Command -Name "choco" -ErrorAction SilentlyContinue)) {
+﻿if (-not (Get-Command -Name "choco" -ErrorAction SilentlyContinue)) {
     # Set directory for installation - Chocolatey does not lock
     # down the directory if not the default
     $InstallDir = [System.IO.Path]::Combine($env:LOCALAPPDATA, "Programs", "Chocolatey")
