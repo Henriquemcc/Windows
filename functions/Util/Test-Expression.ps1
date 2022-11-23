@@ -14,7 +14,7 @@
         True
     #>
 
-    $commandInformation = Get-Command -Name $Command -ErrorAction SilentlyContinue
+    $commandInformation = Get-Command -Name:$Command -ErrorAction SilentlyContinue
 
     return $null -ne $commandInformation
 }

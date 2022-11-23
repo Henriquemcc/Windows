@@ -1,4 +1,4 @@
-﻿Import-Module -Name ([System.IO.Path]::Combine((Split-Path -Path $MyInvocation.MyCommand.Definition -Parent), "..", "Util", "Util.psm1"))
+﻿Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "Util", "Set-ItemPermission.ps1")) -Global -Force
 
 function Set-OpenSshAdministratorAuthorizedKeysPermissions
 {
@@ -21,7 +21,7 @@ function Set-OpenSshAdministratorAuthorizedKeysPermissions
     $path = [System.IO.Path]::Combine($env:ProgramData, "ssh", "administrators_authorized_keys")
 
     # Changing file permission
-    Set-ItemPermission -Path $path -AcessRule $accessRule -IsProtected $true -PreserveInheritance $false
+    Set-ItemPermission -Path:$path -AcessRule:$accessRule -IsProtected:$true -PreserveInheritance:$false
 
     # Restarting Open SSH Server service
     Restart-Service -Name "sshd"

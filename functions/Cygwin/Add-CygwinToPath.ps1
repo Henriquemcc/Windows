@@ -1,18 +1,19 @@
-﻿Import-Module -Name ([System.IO.Path]::Combine((Split-Path -Path $MyInvocation.MyCommand.Definition -Parent), "Install-Cygwin.ps1"))
-Import-Module -Name ([System.IO.Path]::Combine((Split-Path -Path $MyInvocation.MyCommand.Definition -Parent), "..", "Chocolatey", "Install-Chocolatey.ps1"))
+﻿Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "Util", "Add-DirectoryToPath.ps1")) -Global -Force
+Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition), "Get-CygwinRootPath.ps1")) -Global -Force
 
-function Add-CygwinToPath
-{
-    # Installing Cygwin
-    Install-Cygwin
+function Add-CygwinToPath {
 
-    # Installing Chocolatey
-    Install-Chocolatey
+    <#
+    .SYNOPSIS
+        Adds Cygwin 'bin' directory to system or user environment variable 'Path'
+    .DESCRIPTION
+        Adds to system or user environment variable 'Path' Cygwin 'bin' directory.
+    .EXAMPLE
+        Add-CygwinToPath
+        Adds Cygwin 'bin' directory to system or user environment variable 'Path'.
+    #>
 
-    # Importing Chocolatey Installer Module
-    Import-Module -Name ([System.IO.Path]::Combine($env:ChocolateyInstall, "helpers", "chocolateyInstaller.psm1"))
-
-    # Adding Cygwin bin folder to system path
-    Install-ChocolateyPath -PathToInstall "$($env:SystemDrive)\tools\cygwin\bin"
+    $cygwinRootPath = Get-CygwinRootPath
+    
+    Add-DirectoryToPath -DirectoryPath ([System.IO.Path]::Combine($cygwinRootPath, "bin"))
 }
-

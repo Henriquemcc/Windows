@@ -23,7 +23,7 @@
     )
 
     # Getting file/folder security descriptor
-    $itemSecurityDescriptor = Get-Acl -Path $Path
+    $itemSecurityDescriptor = Get-Acl -Path:$Path
 
     # Setting Access Rule protection
     $itemSecurityDescriptor.SetAccessRuleProtection($IsProtected, $PreserveInheritance)
@@ -35,5 +35,5 @@
     }
 
     # Applying security descriptor
-    Set-Acl -Path $Path -AclObject $itemSecurityDescriptor
+    Set-Acl -Path:$Path -AclObject:$itemSecurityDescriptor
 }

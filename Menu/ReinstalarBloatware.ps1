@@ -1,4 +1,4 @@
-﻿Import-Module -Name ([System.IO.Path]::Combine((Split-Path -Path $MyInvocation.MyCommand.Definition -Parent), "functions", "MyIO", "MyIO.psm1"))
+﻿Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "functions", "MyIO", "MyIO.psm1"))
 
 # https://www.howtogeek.com/224798/how-to-uninstall-windows-10s-built-in-apps-and-how-to-reinstall-them/#:~:text=How%20to%20Reinstall,then%20press%20Enter%3A
 
@@ -106,6 +106,6 @@ while ($opcao -ne 0) {
     }
 
     elseif ($opcao -eq 18) {
-        .\RemoverBloatware.ps1
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition), "RemoverBloatware.ps1"))
     }
 }
