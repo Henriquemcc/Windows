@@ -9,8 +9,8 @@
 
     # Downloading ESET Online Scanner
     $url = "https://download.eset.com/com/eset/tools/online_scanner/latest/esetonlinescanner.exe"
-    $downloadFile = [System.IO.Path]::Combine($env:TEMP, "esetonlinescanner.exe")
-    Invoke-WebRequest -Uri $url -OutFile $downloadFile
+    $downloadFile = [System.IO.Path]::Combine($env:TEMP, [System.IO.Path]::GetFileName($url))
+    Invoke-WebRequest -Uri:$url -OutFile:$downloadFile
 
     # Running ESET Online Scanner
     $process = [System.Diagnostics.Process]::new()
