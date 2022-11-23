@@ -3,7 +3,7 @@ Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryNam
 function ObterOpcao {
 
     $_opcao = -1
-    while ($_opcao -lt 0 -or $_opcao -gt 16) {
+    while ($_opcao -lt 0 -or $_opcao -gt 17) {
         Write-Host -Object "O que deseja fazer?"
         Write-Host -Object "0 - Sair"
         Write-Host -Object "1 - Instalar Android Studio"
@@ -19,9 +19,10 @@ function ObterOpcao {
         Write-Host -Object "11 - Instalar KeePassXC"
         Write-Host -Object "12 - Instalar LibreOffice"
         Write-Host -Object "13 - Instalar Nomacs"
-        Write-Host -Object "14 - Instalar Peazip"
-        Write-Host -Object "15 - Instalar Python"
-        Write-Host -Object "16 - Instalar Visual Studio Code"
+        Write-Host -Object "14 - Instalar Paint.net"
+        Write-Host -Object "15 - Instalar Peazip"
+        Write-Host -Object "16 - Instalar Python"
+        Write-Host -Object "17 - Instalar Visual Studio Code"
         
         $_opcao = Read-Int32
     }
@@ -86,14 +87,18 @@ while ($opcao -ne 0) {
     }
 
     elseif ($opcao -eq 14) {
-        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition))), "PortableApps", "Install-Peazip.ps1"))
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition))), "PortableApps", "Install-PaintDotNet.ps1"))
     }
 
     elseif ($opcao -eq 15) {
-        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition))), "PortableApps", "Install-Python.ps1"))
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition))), "PortableApps", "Install-Peazip.ps1"))
     }
 
     elseif ($opcao -eq 16) {
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition))), "PortableApps", "Install-Python.ps1"))
+    }
+
+    elseif ($opcao -eq 17) {
         & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition))), "PortableApps", "Install-VisualStudioCode.ps1"))
     }
 }
