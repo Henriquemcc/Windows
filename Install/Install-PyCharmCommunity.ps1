@@ -7,6 +7,9 @@ $url = if ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "amd64" -or $env:PROCESSOR_
 elseif ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "arm64") {
     "https://download.jetbrains.com/python/pycharm-professional-2022.3.2-aarch64.exe"
 }
+else {
+    throw "Invalid Architecture"
+}
 $downloadFileName = [System.IO.Path]::GetFileName($url)
 $downloadDirectoryPath = $env:TMP
 $downloadFilePath = [System.IO.Path]::Combine($downloadDirectoryPath, $downloadFileName)
