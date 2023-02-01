@@ -72,7 +72,7 @@ while ($opcao -ne 0) {
     }
 
     elseif ($opcao -eq 10) {
-        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition))), "PortableApps", "Install-IntellijIdeaCommunity.ps1"))
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition))), "Install", "Install-IntellijIdeaCommunity.ps1"))
     }
 
     elseif ($opcao -eq 11) {
