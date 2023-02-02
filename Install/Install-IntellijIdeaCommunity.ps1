@@ -13,11 +13,11 @@ Invoke-WebRequest -Uri:$url -OutFile:$downloadFilePath
 $configurationFilePath = [System.IO.Path]::Combine($env:TMP, "silent.config")
 $configurationFileString = [System.Text.StringBuilder]::new()
 
-if (-not (Test-AdministratorPrivileges)) {
-    $configurationFileString.AppendLine("mode=user")   
+if (Test-AdministratorPrivileges) {
+    $configurationFileString.AppendLine("mode=admin")
 }
 else {
-    $configurationFileString.AppendLine("mode=admin")
+    $configurationFileString.AppendLine("mode=user")   
 }
 
 if ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "amd64") {
