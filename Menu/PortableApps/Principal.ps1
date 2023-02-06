@@ -100,7 +100,7 @@ while ($opcao -ne 0) {
     }
 
     elseif ($opcao -eq 17) {
-        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition))), "PortableApps", "Install-Python.ps1"))
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition))), "Install", "Install-Python.ps1"))
     }
 
     elseif ($opcao -eq 18) {
