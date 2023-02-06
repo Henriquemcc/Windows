@@ -76,7 +76,7 @@ while ($opcao -ne 0) {
     }
 
     elseif ($opcao -eq 11) {
-        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition))), "PortableApps", "Install-KeePass.ps1"))
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition))), "Install", "Install-KeePass.ps1"))
     }
 
     elseif ($opcao -eq 12) {
