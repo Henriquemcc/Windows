@@ -1,8 +1,8 @@
-﻿Import-Module -Name ([System.IO.Path]::Combine((Split-Path -Path (Split-Path -Path $MyInvocation.MyCommand.Definition -Parent) -Parent), "functions", "Util", "Get-FileNameFromUrl.ps1"))
+﻿Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "functions", "Util", "Test-AdministratorPrivileges.ps1"))
 
 # Download Variables
 $url = "https://download.gimp.org/gimp/v2.10/windows/gimp-2.10.32-setup-1.exe"
-$downloadFileName = Get-FileNameFromUrl -Url:$url
+$downloadFileName = [System.IO.Path]::GetFileName($url)
 $downloadDirectoryPath = $env:TMP
 $downloadFilePath = [System.IO.Path]::Combine($downloadDirectoryPath, $downloadFileName)
 
@@ -10,7 +10,13 @@ $downloadFilePath = [System.IO.Path]::Combine($downloadDirectoryPath, $downloadF
 Invoke-WebRequest -Uri:$url -OutFile:$downloadFilePath
 
 # Installation variables
-$silentInstallArgs = @("/VERYSILENT", "/SUPRESSMSGBOXES", "/CURRENTUSER")
+$silentInstallArgs = [System.Collections.ArrayList]::new()
+[void]$silentInstallArgs.Add("/VERYSILENT")
+[void]$silentInstallArgs.Add("/SUPRESSMSGBOXES")
+
+if (-not (Test-AdministratorPrivileges)) {
+    [void]$silentInstallArgs.Add("/CURRENTUSER")
+}
 
 # Installing Gimp
 $process = [System.Diagnostics.Process]::new()
