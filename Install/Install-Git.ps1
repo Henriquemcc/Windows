@@ -1,17 +1,13 @@
-﻿function Get-GitUrl {
-    if ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "amd64") {
-        return "https://github.com/git-for-windows/git/releases/download/v2.38.1.windows.1/Git-2.38.1-64-bit.exe"
-    }
-    elseif ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "x86") {
-        return "https://github.com/git-for-windows/git/releases/download/v2.38.1.windows.1/Git-2.38.1-32-bit.exe"
-    }
-    else {
-        throw "Invalid Architecture"
-    }
+﻿# Download Variables
+$url = if ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "amd64") {
+    "https://github.com/git-for-windows/git/releases/download/v2.38.1.windows.1/Git-2.38.1-64-bit.exe"
 }
-
-# Download Variables
-$url = Get-GitUrl
+elseif ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "x86") {
+    "https://github.com/git-for-windows/git/releases/download/v2.38.1.windows.1/Git-2.38.1-32-bit.exe"
+}
+else {
+    throw "Invalid Architecture"
+}
 $downloadFileName = [System.IO.Path]::GetFileName($url)
 $downloadDirectoryPath = $env:TMP
 $downloadFilePath = [System.IO.Path]::Combine($downloadDirectoryPath, $downloadFileName)
