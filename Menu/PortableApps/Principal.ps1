@@ -92,7 +92,7 @@ while ($opcao -ne 0) {
     }
 
     elseif ($opcao -eq 15) {
-        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition))), "PortableApps", "Install-PaintDotNet.ps1"))
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition))), "Install", "Install-PaintDotNet.ps1"))
     }
 
     elseif ($opcao -eq 16) {
