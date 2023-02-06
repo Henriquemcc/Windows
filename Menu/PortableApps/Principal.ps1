@@ -84,7 +84,7 @@ while ($opcao -ne 0) {
     }
 
     elseif ($opcao -eq 13) {
-        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition))), "PortableApps", "Install-LibreOffice.ps1"))
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition))), "Install", "Install-LibreOffice.ps1"))
     }
 
     elseif ($opcao -eq 14) {
