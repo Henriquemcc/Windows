@@ -45,8 +45,7 @@ while ($opcao -ne 0) {
     }
 
     elseif ($opcao -eq 2) {
-        Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "functions", "CleanWindows", "Install-Ccleaner.ps1"))
-        Install-Ccleaner
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "Install", "Install-Ccleaner.ps1"))
     }
 
     elseif ($opcao -eq 3) {
