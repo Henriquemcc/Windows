@@ -1,7 +1,8 @@
 ﻿Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "functions", "Util", "Test-AdministratorPrivileges.ps1"))
+Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "functions", "Util", "Get-DestinationUrl.ps1"))
 
 if (Test-AdministratorPrivileges) {
-    $url = "https://sonik.dl.sourceforge.net/project/keepass/KeePass%202.x/2.53/KeePass-2.53-Setup.exe"
+    $url = Get-DestinationUrl -Url "https://sourceforge.net/projects/keepass/files/KeePass%202.x/2.53.1/KeePass-2.53.1-Setup.exe/download"
     $downloadFileName = [System.IO.Path]::GetFileName($url)
     $downloadDirectoryPath = $env:TMP
     $downloadFilePath = [System.IO.Path]::Combine($downloadDirectoryPath, $downloadFileName)
@@ -23,7 +24,7 @@ if (Test-AdministratorPrivileges) {
 
 else {
     # Download Variables
-    $url = "https://sonik.dl.sourceforge.net/project/keepass/KeePass%202.x/2.52/KeePass-2.52.zip"
+    $url = Get-DestinationUrl -Url "https://sourceforge.net/projects/keepass/files/KeePass%202.x/2.53.1/KeePass-2.53.1.zip/download"
     $downloadFileName = [System.IO.Path]::GetFileName($url)
     $downloadDirectoryPath = $env:TMP
     $downloadFilePath = [System.IO.Path]::Combine($downloadDirectoryPath, $downloadFileName)
