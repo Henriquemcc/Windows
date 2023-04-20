@@ -1,10 +1,10 @@
 ﻿Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "functions", "Util", "Test-Expression.ps1"))
 
-if (($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "amd64") -and (Test-Expression -Command "winget")) {
-    Invoke-Expression "winget install --id Git.Git -e --source winget --silent --accept-source-agreements --accept-package-agreements"
-}
+# Installing from Winget
+Invoke-Expression "winget install --id Git.Git -e --source winget --silent --accept-source-agreements --accept-package-agreements"
 
-else {
+# Downloading and installing its executable file
+if ((-not (Test-Expression -Command "winget")) -or ($LASTEXITCODE -ne 0)) {
 
     # Download Variables
     $url = if ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "amd64") {
