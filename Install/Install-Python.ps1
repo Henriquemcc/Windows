@@ -1,11 +1,11 @@
 ﻿Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "functions", "Util", "Test-AdministratorPrivileges.ps1"))
 Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "functions", "Util", "Test-Expression.ps1"))
 
-if ((Test-AdministratorPrivileges) -and (Test-Expression -Command "winget")) {
-    Invoke-Expression -Command "winget install 9NRWMJP3717K --source msstore --silent --accept-source-agreements --accept-package-agreements"
-}
+# Installing from Microsoft Store
+Invoke-Expression -Command "winget install 9NRWMJP3717K --source msstore --silent --accept-source-agreements --accept-package-agreements"
 
-else {
+# Downloading and installing its executable file
+if ((-not (Test-Expression -Command "winget")) -or ($LASTEXITCODE -ne 0)) {
 
     # Download Variables
     $url = if ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "amd64") {
