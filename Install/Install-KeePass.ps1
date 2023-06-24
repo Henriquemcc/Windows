@@ -2,7 +2,7 @@
 Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "functions", "Util", "Get-DestinationUrl.ps1"))
 
 $baseUrl = "https://sourceforge.net/projects/keepass/files/KeePass%202.x/"
-$version = "2.53.1"
+$version = "2.54"
 
 if (Test-AdministratorPrivileges) {
     $url = Get-DestinationUrl -Url "$($baseUrl)$($version)/KeePass-$($version)-Setup.exe/download"
