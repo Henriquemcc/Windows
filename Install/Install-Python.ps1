@@ -8,14 +8,16 @@ Invoke-Expression -Command "winget install 9NRWMJP3717K --source msstore --silen
 if ((-not (Test-Expression -Command "winget")) -or ($LASTEXITCODE -ne 0)) {
 
     # Download Variables
+    $baseUrl = "https://www.python.org/ftp/python/"
+    $version = "3.11.0"
     $url = if ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "amd64") {
-        "https://www.python.org/ftp/python/3.11.0/python-3.11.0-amd64.exe"
+        "$($baseUrl)$($version)/python-$($version)-amd64.exe"
     }
     elseif ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "x86") {
-        "https://www.python.org/ftp/python/3.11.0/python-3.11.0.exe"
+        "$($baseUrl)$($version)/python-$($version).exe"
     }
     elseif ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "arm64") {
-        "https://www.python.org/ftp/python/3.11.0/python-3.11.0-arm64.exe"
+        "$($baseUrl)$($version)/python-$($version)-arm64.exe"
     }
     else {
         throw "Invalid Architecture"
