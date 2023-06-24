@@ -1,8 +1,8 @@
 ﻿Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "functions", "Util", "Test-AdministratorPrivileges.ps1"))
 
 # Download Variables
-$baseUrl = "https://az764295.vo.msecnd.net/stable/97dec172d3256f8ca4bfb2143f3f76b503ca0534/"
-$version = "1.74.3"
+$baseUrl = "https://az764295.vo.msecnd.net/stable/695af097c7bd098fbf017ce3ac85e09bbc5dda06/"
+$version = "1.79.2"
 $url = if (Test-AdministratorPrivileges) {
 
     if ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "amd64") {
