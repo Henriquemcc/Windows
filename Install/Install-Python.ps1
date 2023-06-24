@@ -9,7 +9,7 @@ if ((-not (Test-Expression -Command "winget")) -or ($LASTEXITCODE -ne 0)) {
 
     # Download Variables
     $baseUrl = "https://www.python.org/ftp/python/"
-    $version = "3.11.0"
+    $version = "3.11.4"
     $url = if ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "amd64") {
         "$($baseUrl)$($version)/python-$($version)-amd64.exe"
     }
