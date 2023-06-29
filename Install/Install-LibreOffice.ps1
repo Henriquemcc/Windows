@@ -35,7 +35,7 @@ if (Test-AdministratorPrivileges) {
 else {
 
     # Download Variables
-    $version = "7.4.2"
+    $version = "7.5.4"
     $url = "https://download.documentfoundation.org/libreoffice/portable/$($version)/LibreOfficePortable_$($version)_MultilingualAll.paf.exe"
     $downloadFileName = [System.IO.Path]::GetFileName($url)
     $downloadDirectoryPath = $env:TMP
