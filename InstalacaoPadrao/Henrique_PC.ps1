@@ -33,8 +33,5 @@ choco install virtualbox --params "/ExtensionPack" --yes
 # Adicionando Cygwin ao path
 Add-CygwinToPath
 
-# Alterando chaves do registro
-.\Set-RegistryKeys.ps1
-
 # Atualizando o menu de ajuda do PowerShell
 Update-Help -Force -ErrorAction Ignore
