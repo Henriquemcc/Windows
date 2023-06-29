@@ -1,11 +1,8 @@
 ﻿Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "functions", "MyIO", "MyIO.psm1"))
-Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "functions", "ModifyRegistry", "ModifyRegistry.psm1"))
 
-function ObterOpcao
-{
+function ObterOpcao {
     $_opcao = -1
-    while ($_opcao -lt 0 -or $_opcao -gt 6)
-    {
+    while ($_opcao -lt 0 -or $_opcao -gt 6) {
         Write-Host -Object "O que deseja fazer?"
         Write-Host -Object "0 - Sair"
         Write-Host -Object "1 - Configurar registro para que o Windows User Account Control exija a senha para rodar um programa como administrador"
@@ -21,37 +18,30 @@ function ObterOpcao
 }
 
 $opcao = -1
-while ($opcao -ne 0)
-{
+while ($opcao -ne 0) {
     $opcao = ObterOpcao
 
-    if ($opcao -eq 1)
-    {
-        Enable-PasswordOnWindowsUAC
+    if ($opcao -eq 1) {
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "Registry", "Enable-PasswordOnWindowsUAC.ps1"))
     }
 
-    elseif ($opcao -eq 2)
-    {
-        Enable-PasswordOnWindowsUAC -RestoreDefault
+    elseif ($opcao -eq 2) {
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "Registry", "Enable-PasswordOnWindowsUAC.ps1")) -RestoreDefault
     }
 
-    elseif ($opcao -eq 3)
-    {
-        Enable-RetpolineSpectreMitigation
+    elseif ($opcao -eq 3) {
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "Registry", "Enable-RetpolineSpectreMitigation.ps1"))
     }
 
-    elseif ($opcao -eq 4)
-    {
-        Enable-RetpolineSpectreMitigation -RestoreDefault
+    elseif ($opcao -eq 4) {
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "Registry", "Enable-RetpolineSpectreMitigation.ps1")) -RestoreDefault
     }
 
-    elseif ($opcao -eq 5)
-    {
-        Enable-DualBootTimeSync
+    elseif ($opcao -eq 5) {
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "Registry", "Enable-DualBootTimeSync.ps1"))
     }
 
-    elseif ($opcao -eq 6)
-    {
-        Enable-DualBootTimeSync -RestoreDefault
+    elseif ($opcao -eq 6) {
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "Registry", "Enable-DualBootTimeSync.ps1")) -RestoreDefault
     }
 }

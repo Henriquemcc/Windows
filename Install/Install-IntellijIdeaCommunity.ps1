@@ -1,4 +1,6 @@
-﻿# Download Variables
+﻿Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "functions", "Util", "Test-AdministratorPrivileges.ps1"))
+
+# Download Variables
 $url = "https://download.jetbrains.com/idea/ideaIC-2022.2.3.exe"
 $downloadFileName = [System.IO.Path]::GetFileName($url)
 $downloadDirectoryPath = $env:TMP
@@ -10,7 +12,14 @@ Invoke-WebRequest -Uri:$url -OutFile:$downloadFilePath
 # Creating Installation Configuration File
 $configurationFilePath = [System.IO.Path]::Combine($env:TMP, "silent.config")
 $configurationFileString = [System.Text.StringBuilder]::new()
-$configurationFileString.AppendLine("mode=user")
+
+if (Test-AdministratorPrivileges) {
+    $configurationFileString.AppendLine("mode=admin")
+}
+else {
+    $configurationFileString.AppendLine("mode=user")   
+}
+
 if ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "amd64") {
     $configurationFileString.AppendLine("launcher32=0")
     $configurationFileString.AppendLine("launcher64=1")
