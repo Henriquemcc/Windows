@@ -3,11 +3,12 @@
 if (Test-AdministratorPrivileges) {
 
     # Download Variables
+    $version = "7.5.0"
     $url = if ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "amd64") {
-        "https://www.libreoffice.org/donate/dl/win-x86_64/7.5.0/pt-BR/LibreOffice_7.5.0_Win_x86-64.msi"
+        "https://www.libreoffice.org/donate/dl/win-x86_64/$($version)/pt-BR/LibreOffice_$($version)_Win_x86-64.msi"
     }
     elseif ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "x86") {
-        "https://www.libreoffice.org/donate/dl/win-x86/7.5.0/pt-BR/LibreOffice_7.5.0_Win_x86.msi"
+        "https://www.libreoffice.org/donate/dl/win-x86/$($version)/pt-BR/LibreOffice_$($version)_Win_x86.msi"
     }
     else {
         throw "Invalid Architecture"
