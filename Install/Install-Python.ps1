@@ -59,3 +59,8 @@ if ((-not (Test-Expression -Command "winget")) -or ($LASTEXITCODE -ne 0)) {
     $windowsStorePythonPath = [System.IO.Path]::Combine($env:LOCALAPPDATA, "Microsoft", "WindowsApps", "python.exe")
     Remove-Item -Path:$windowsStorePythonPath
 }
+
+# Disabling path limit
+if (Test-AdministratorPrivileges) {
+    & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "Registry", "Disable-PathLimit.ps1"))
+}
