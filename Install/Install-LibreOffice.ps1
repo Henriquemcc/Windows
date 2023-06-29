@@ -3,7 +3,7 @@
 if (Test-AdministratorPrivileges) {
 
     # Download Variables
-    $version = "7.5.0"
+    $version = "7.5.4"
     $url = if ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "amd64") {
         "https://www.libreoffice.org/donate/dl/win-x86_64/$($version)/pt-BR/LibreOffice_$($version)_Win_x86-64.msi"
     }
