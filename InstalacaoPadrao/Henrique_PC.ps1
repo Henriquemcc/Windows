@@ -9,28 +9,28 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 & ([System.IO.Path]::Combine($env:ProgramData, "chocolatey", "bin", "choco.exe")) install winget -y
 
 # Instalando programas
-winget install --silent --id Google.Chrome --source winget
-winget install --silent --id VideoLAN.VLC --source winget
-winget install --silent --id 7zip.7zip --source winget
-winget install --silent --id Microsoft.Teams --source winget --scope user
-winget install --silent --id Bitwarden.Bitwarden --source winget --scope user
-winget install --silent --id Oracle.JavaRuntimeEnvironment --source winget
-winget install --silent --id Mozilla.Firefox.ESR --source winget --scope user
-winget install --silent --id TheDocumentFoundation.LibreOffice.LTS --source winget
-winget install --silent --id DominikReichl.KeePass --source winget --scope user
-winget install --silent --id Microsoft.WindowsTerminal --source winget
-winget install --silent --id Microsoft.VisualStudioCode --source winget --scope user
-winget install --silent --id Git.Git -e --source winget --custom "/WindowsTerminalProfile" --scope user
-winget install --silent --id Python.Python.3 --source winget --scope user
-winget install --silent --id Oracle.JDK.21 --source winget
-winget install --silent --id EpicGames.EpicGamesLauncher --source winget
-winget install --silent --id Ubisoft.Connect --source winget
-winget install --silent --id WireGuard.WireGuard --source winget
-winget install --silent --id dotPDNLLC.paintdotnet --source winget --scope user
-winget install --silent --id Adobe.Acrobat.Reader.64-bit --source winget
-winget install --silent --id Valve.Steam --source winget
-winget install --silent --id ElectronicArts.EADesktop --source winget
-winget install --silent --id Rufus.Rufus --source winget --scope user
+& ([System.IO.Path]::Combine($env:LOCALAPPDATA, "Microsoft", "WindowsApps", "winget.exe"))  install --silent --id Google.Chrome --source winget
+& ([System.IO.Path]::Combine($env:LOCALAPPDATA, "Microsoft", "WindowsApps", "winget.exe"))  install --silent --id VideoLAN.VLC --source winget
+& ([System.IO.Path]::Combine($env:LOCALAPPDATA, "Microsoft", "WindowsApps", "winget.exe"))  install --silent --id 7zip.7zip --source winget
+& ([System.IO.Path]::Combine($env:LOCALAPPDATA, "Microsoft", "WindowsApps", "winget.exe"))  install --silent --id Microsoft.Teams --source winget --scope user
+& ([System.IO.Path]::Combine($env:LOCALAPPDATA, "Microsoft", "WindowsApps", "winget.exe"))  install --silent --id Bitwarden.Bitwarden --source winget --scope user
+& ([System.IO.Path]::Combine($env:LOCALAPPDATA, "Microsoft", "WindowsApps", "winget.exe"))  install --silent --id Oracle.JavaRuntimeEnvironment --source winget
+& ([System.IO.Path]::Combine($env:LOCALAPPDATA, "Microsoft", "WindowsApps", "winget.exe"))  install --silent --id Mozilla.Firefox.ESR --source winget --scope user
+& ([System.IO.Path]::Combine($env:LOCALAPPDATA, "Microsoft", "WindowsApps", "winget.exe"))  install --silent --id TheDocumentFoundation.LibreOffice.LTS --source winget
+& ([System.IO.Path]::Combine($env:LOCALAPPDATA, "Microsoft", "WindowsApps", "winget.exe"))  install --silent --id DominikReichl.KeePass --source winget --scope user
+& ([System.IO.Path]::Combine($env:LOCALAPPDATA, "Microsoft", "WindowsApps", "winget.exe"))  install --silent --id Microsoft.WindowsTerminal --source winget
+& ([System.IO.Path]::Combine($env:LOCALAPPDATA, "Microsoft", "WindowsApps", "winget.exe"))  install --silent --id Microsoft.VisualStudioCode --source winget --scope user
+& ([System.IO.Path]::Combine($env:LOCALAPPDATA, "Microsoft", "WindowsApps", "winget.exe"))  install --silent --id Git.Git -e --source winget --custom "/WindowsTerminalProfile" --scope user
+& ([System.IO.Path]::Combine($env:LOCALAPPDATA, "Microsoft", "WindowsApps", "winget.exe"))  install --silent --id Python.Python.3 --source winget --scope user
+& ([System.IO.Path]::Combine($env:LOCALAPPDATA, "Microsoft", "WindowsApps", "winget.exe"))  install --silent --id Oracle.JDK.21 --source winget
+& ([System.IO.Path]::Combine($env:LOCALAPPDATA, "Microsoft", "WindowsApps", "winget.exe"))  install --silent --id EpicGames.EpicGamesLauncher --source winget
+& ([System.IO.Path]::Combine($env:LOCALAPPDATA, "Microsoft", "WindowsApps", "winget.exe"))  install --silent --id Ubisoft.Connect --source winget
+& ([System.IO.Path]::Combine($env:LOCALAPPDATA, "Microsoft", "WindowsApps", "winget.exe"))  install --silent --id WireGuard.WireGuard --source winget
+& ([System.IO.Path]::Combine($env:LOCALAPPDATA, "Microsoft", "WindowsApps", "winget.exe"))  install --silent --id dotPDNLLC.paintdotnet --source winget --scope user
+& ([System.IO.Path]::Combine($env:LOCALAPPDATA, "Microsoft", "WindowsApps", "winget.exe"))  install --silent --id Adobe.Acrobat.Reader.64-bit --source winget
+& ([System.IO.Path]::Combine($env:LOCALAPPDATA, "Microsoft", "WindowsApps", "winget.exe"))  install --silent --id Valve.Steam --source winget
+& ([System.IO.Path]::Combine($env:LOCALAPPDATA, "Microsoft", "WindowsApps", "winget.exe"))  install --silent --id ElectronicArts.EADesktop --source winget
+& ([System.IO.Path]::Combine($env:LOCALAPPDATA, "Microsoft", "WindowsApps", "winget.exe"))  install --silent --id Rufus.Rufus --source winget --scope user
 
 # Atualizando programas
-winget upgrade --silent --all
+& ([System.IO.Path]::Combine($env:LOCALAPPDATA, "Microsoft", "WindowsApps", "winget.exe"))  upgrade --silent --all
