@@ -14,6 +14,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 & ([System.IO.Path]::Combine($env:LOCALAPPDATA, "Microsoft", "WindowsApps", "winget.exe"))  install --silent --id 7zip.7zip --source winget
 & ([System.IO.Path]::Combine($env:LOCALAPPDATA, "Microsoft", "WindowsApps", "winget.exe"))  install --silent --id Microsoft.Teams --source winget --scope user
 & ([System.IO.Path]::Combine($env:LOCALAPPDATA, "Microsoft", "WindowsApps", "winget.exe"))  install --silent --id Bitwarden.Bitwarden --source winget --scope user
+& ([System.IO.Path]::Combine($env:LOCALAPPDATA, "Microsoft", "WindowsApps", "winget.exe"))  install --silent --id Google.GoogleDrive --source winget --scope user
 & ([System.IO.Path]::Combine($env:LOCALAPPDATA, "Microsoft", "WindowsApps", "winget.exe"))  install --silent --id Oracle.JavaRuntimeEnvironment --source winget
 & ([System.IO.Path]::Combine($env:LOCALAPPDATA, "Microsoft", "WindowsApps", "winget.exe"))  install --silent --id Mozilla.Firefox.ESR --source winget --scope user
 & ([System.IO.Path]::Combine($env:LOCALAPPDATA, "Microsoft", "WindowsApps", "winget.exe"))  install --silent --id TheDocumentFoundation.LibreOffice.LTS --source winget
@@ -31,6 +32,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 & ([System.IO.Path]::Combine($env:LOCALAPPDATA, "Microsoft", "WindowsApps", "winget.exe"))  install --silent --id Valve.Steam --source winget
 & ([System.IO.Path]::Combine($env:LOCALAPPDATA, "Microsoft", "WindowsApps", "winget.exe"))  install --silent --id ElectronicArts.EADesktop --source winget
 & ([System.IO.Path]::Combine($env:LOCALAPPDATA, "Microsoft", "WindowsApps", "winget.exe"))  install --silent --id Rufus.Rufus --source winget --scope user
+& ([System.IO.Path]::Combine($env:LOCALAPPDATA, "Microsoft", "WindowsApps", "winget.exe"))  install --silent --id Microsoft.BingWallpaper --source winget --scope user
 
 # Atualizando programas
 & ([System.IO.Path]::Combine($env:LOCALAPPDATA, "Microsoft", "WindowsApps", "winget.exe"))  upgrade --silent --all
