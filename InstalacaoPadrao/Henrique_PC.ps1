@@ -38,6 +38,7 @@ if ($null -eq $winget) {
 & $winget install --silent --id Google.Chrome --source winget --scope user
 & $winget install --silent --id Microsoft.Teams --source winget --scope user
 & $winget install --silent --id Bitwarden.Bitwarden --source winget --scope user
+& $winget install --silent --id Spotify.Spotify --source winget --scope user
 & $winget install --silent --id Mozilla.Firefox.ESR --source winget --scope user
 & $winget install --silent --id DominikReichl.KeePass --source winget --scope user
 & $winget install --silent --id Microsoft.VisualStudioCode --source winget --scope user
