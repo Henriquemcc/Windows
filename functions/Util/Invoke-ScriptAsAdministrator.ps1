@@ -47,8 +47,31 @@ function Invoke-ScriptAsAdministrator {
         return
     }
 
+    # Not elevating privileges, as it is running as administrator
+    if (Test-AdministratorPrivileges) {
+
+        # Executing the script path
+        if ($null -ne $ScriptPath -and $ScriptPath.Length -gt 0) {
+
+            # Avoiding infinite looping
+            $scriptContent = (Get-Content -Path $ScriptPath) -join "`n"
+            if (-not ($scriptContent.Contains("Invoke-ScriptAsAdministrator"))) {
+                & $ScriptPath
+            }
+        }
+
+        # Executing the command script
+        if ($null -ne $Commands -and $Commands.ToString().Length -gt 0) {
+
+            # Avoiding infinite looping
+            if (-not ($Commands.ToString().Contains("Invoke-ScriptAsAdministrator"))) {
+                $Commands.Invoke()
+            }
+        }
+    }
+
     # Elevating privileges
-    if (-Not (Test-AdministratorPrivileges)) {
+    else {
         Write-Host "This script is not running as administrator"
         Write-Host "Elevating privileges..."
         
