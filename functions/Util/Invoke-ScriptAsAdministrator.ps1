@@ -36,13 +36,13 @@ function Invoke-ScriptAsAdministrator {
     }
 
     # Exiting if neither script path nor commands to execute were provided
-    if ($null -eq $ScriptPath -and $null -eq $Commands) {
+    if (($null -eq $ScriptPath -or $ScriptPath.Length -eq 0) -and ($null -eq $Commands -or $Commands.Length -eq 0)) {
         Write-Host "No script path or commands to execute"
         return
     }
 
     # Exiting if both script path and commands to execute were provided
-    if ($null -ne $ScriptPath -and $null -ne $Commands) {
+    if (($null -ne $ScriptPath -and $ScriptPath.Length -gt 0) -and ($null -ne $Commands -and $Commands.ToString().Length -gt 0)) {
         Write-Host "Both script path and commands to execute were provided"
         return
     }
@@ -57,18 +57,18 @@ function Invoke-ScriptAsAdministrator {
         [void]$stringBuilder.Append("-Command `"& { ")
         
         # Adding the working directory
-        if ($null -ne $WorkingDirectory) {
+        if ($null -ne $WorkingDirectory -and $WorkingDirectory.Length -gt 0) {
             [void]$stringBuilder.Append("Set-Location -Path $WorkingDirectory; ")
         }
 
         # Adding the script path to execute
-        if ($null -ne $ScriptPath) {
+        if ($null -ne $ScriptPath -and $ScriptPath.Length -gt 0) {
             [void]$stringBuilder.Append("& $ScriptPath")
         }
 
         # Adding the commands to execute
-        if ($null -ne $Commands) {
-            [void]$stringBuilder.Append("$Commands")
+        if ($null -ne $Commands -and $Commands.ToString().Length -gt 0) {
+            [void]$stringBuilder.Append("$($Commands.ToString())")
         }
 
         # Finishing the command string
