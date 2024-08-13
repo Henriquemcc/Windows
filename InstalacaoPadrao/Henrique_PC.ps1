@@ -32,7 +32,7 @@ if ($null -eq $winget) {
 & $winget install --silent --id VideoLAN.VLC --source winget
 & $winget install --silent --id EclipseAdoptium.Temurin.21.JDK --source winget
 & $winget install --silent --id EclipseAdoptium.Temurin.8.JDK --source winget
-& $winget install --silent --id Python.Python.3 --source winget
+& $winget install --silent --id Python.Python.3.12 --source winget
 & $winget install --silent --id Microsoft.VisualStudioCode --source winget
 & $winget install --silent --id Git.Git--source winget
 & $winget install --silent --id JetBrains.IntelliJIDEA.Community --source winget
