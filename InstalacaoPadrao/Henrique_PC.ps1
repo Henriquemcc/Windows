@@ -59,3 +59,6 @@ if ($null -eq $winget) {
 & $winget install --silent --id Ubisoft.Connect --source winget
 & $winget install --silent --id DominikReichl.KeePass --source winget
 & $winget install --silent --id Rufus.Rufus --source winget
+
+# Instalando programas da Microsoft Store
+& $winget install --silent --id 9WZDNCRFHWLH --source msstore # HP Smart
