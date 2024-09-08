@@ -62,3 +62,4 @@ if ($null -eq $winget) {
 
 # Instalando programas da Microsoft Store
 & $winget install --silent --id 9WZDNCRFHWLH --source msstore # HP Smart
+& $winget install --silent --id 9NKSQGP7F2NH --source msstore # WhatsApp
