@@ -30,7 +30,7 @@ if ($null -eq $winget) {
 & $winget install --silent --id OpenWhisperSystems.Signal --source winget
 & $winget install --silent --id 7zip.7zip --source winget
 & $winget install --silent --id VideoLAN.VLC --source winget
-& $winget install --silent --id EclipseAdoptium.Temurin.21.JDK --source winget
+& $winget install --silent --id EclipseAdoptium.Temurin.22.JDK --source winget
 & $winget install --silent --id EclipseAdoptium.Temurin.8.JDK --source winget
 & $winget install --silent --id Python.Python.3.12 --source winget
 & $winget install --silent --id Microsoft.VisualStudioCode --source winget
