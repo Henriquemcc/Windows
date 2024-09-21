@@ -15,51 +15,42 @@ if ($null -eq $winget) {
 & $winget upgrade --silent --all
 
 # Desinstalando programas
-& $winget uninstall --silent --id Microsoft.OneDrive
-& $winget uninstall --silent --id 9NBLGGH5R558 # Microsoft To Do
-& $winget uninstall --silent --id 9NBLGGH4QGHW # Microsoft Sticky Notes
-& $winget uninstall --silent --id 9P1J8S7CCWWT # Microsoft Clipchamp
-& $winget uninstall --silent --id 9WZDNCRFHVFW # Microsoft Notícias
+$programasRemoverWinget = @('Microsoft.OneDrive',
+    '9NBLGGH5R558', # Microsoft To Do
+    '9NBLGGH4QGHW', # Microsoft Sticky Notes
+    '9P1J8S7CCWWT', # Microsoft Clipchamp
+    '9WZDNCRFHVFW' # Microsoft Notícias
+)
+foreach ($programa in $programasRemoverWinget)
+{
+    & $winget uninstall --silent --id "$programa"
+}
 
 # Instalando programas
-& $winget install --silent --id Mozilla.Firefox.ESR --source winget
-& $winget install --silent --id Google.Chrome --source winget
-& $winget install --silent --id Bitwarden.Bitwarden --source winget
-& $winget install --silent --id Spotify.Spotify --source winget
-& $winget install --silent --id Microsoft.Teams --source winget
-& $winget install --silent --id OpenWhisperSystems.Signal --source winget
-& $winget install --silent --id 7zip.7zip --source winget
-& $winget install --silent --id VideoLAN.VLC --source winget
-& $winget install --silent --id EclipseAdoptium.Temurin.21.JDK --source winget
-& $winget install --silent --id EclipseAdoptium.Temurin.8.JDK --source winget
-& $winget install --silent --id Python.Python.3.12 --source winget
-& $winget install --silent --id Microsoft.VisualStudioCode --source winget
-& $winget install --silent --id Git.Git--source winget
-& $winget install --silent --id JetBrains.IntelliJIDEA.Community --source winget
-& $winget install --silent --id JetBrains.PyCharm.Community --source winget
-& $winget install --silent --id Microsoft.WindowsTerminal --source winget
-& $winget install --silent --id Microsoft.VisualStudio.2022.Community --source winget
-& $winget install --silent --id TheDocumentFoundation.LibreOffice --source winget
-& $winget install --silent --id Adobe.Acrobat.Reader.64-bit --source winget
-& $winget install --silent --id Discord.Discord --source winget
-& $winget install --silent --id GIMP.GIMP --source winget
-& $winget install --silent --id Oracle.VirtualBox --source winget
-& $winget install --silent --id Giorgiotani.Peazip --source winget
-& $winget install --silent --id WireGuard.WireGuard --source winget
-& $winget install --silent --id Microsoft.BingWallpaper --source winget
-& $winget install --silent --id Discord.Discord --source winget
-& $winget install --silent --id Audacity.Audacity --source winget
-& $winget install --silent --id gerardog.gsudo --source winget
-& $winget install --silent --id Rclone.Rclone --source winget
-& $winget install --silent --id GitHub.cli --source winget
-& $winget install --silent --id Microsoft.Skype --source winget
-& $winget install --silent --id Valve.Steam --source winget
-& $winget install --silent --id ElectronicArts.EADesktop --source winget
-& $winget install --silent --id EpicGames.EpicGamesLauncher --source winget
-& $winget install --silent --id Ubisoft.Connect --source winget
-& $winget install --silent --id DominikReichl.KeePass --source winget
-& $winget install --silent --id Rufus.Rufus --source winget
+$programasInstalarWinget = @('Mozilla.Firefox.ESR', 'Google.Chrome', 'Bitwarden.Bitwarden', 'Spotify.Spotify',
+    'Microsoft.Teams', 'OpenWhisperSystems.Signal', '7zip.7zip', 'VideoLAN.VLC', 'EclipseAdoptium.Temurin.21.JDK',
+    'EclipseAdoptium.Temurin.8.JDK', 'Python.Python.3.12', 'Microsoft.VisualStudioCode', 'Git.Git',
+    'JetBrains.IntelliJIDEA.Community', 'JetBrains.PyCharm.Community', 'Microsoft.WindowsTerminal',
+    'Microsoft.VisualStudio.2022.Community', 'TheDocumentFoundation.LibreOffice', 'Adobe.Acrobat.Reader.64-bit',
+    'Discord.Discord', 'GIMP.GIMP', 'Oracle.VirtualBox', 'Giorgiotani.Peazip', 'WireGuard.WireGuard',
+    'Microsoft.BingWallpaper', 'Discord.Discord', 'Audacity.Audacity', 'gerardog.gsudo', 'Rclone.Rclone',
+    'GitHub.cli', 'Microsoft.Skype', 'Valve.Steam', 'ElectronicArts.EADesktop', 'EpicGames.EpicGamesLauncher',
+    'Ubisoft.Connect', 'DominikReichl.KeePass', 'Rufus.Rufus', 'JGraph.Draw', 'Oracle.MySQLWorkbench',
+    'Nvidia.CUDA', 'Nvidia.GeForceExperience', 'PuTTY.PuTTY', 'HARMAN.AdobeAIR', 'JetBrains.CLion',
+    'DominikReichl.KeePass ', 'Insecure.Nmap', 'OBSProject.OBSStudio', 'qBittorrent.qBittorrent','Python.Launcher',
+    'Cisco.Webex', 'Gyan.FFmpeg', 'Postman.Postman', 'Stremio.Stremio', 'JetBrains.Toolbox', 'KDE.Kdenlive',
+    'yt-dlp.yt-dlp', 'Debian.Debian'
+)
+foreach ($programa in $programasInstalarWinget)
+{
+    & $winget install --silent --id "$programa" --source winget
+}
 
 # Instalando programas da Microsoft Store
-& $winget install --silent --id 9WZDNCRFHWLH --source msstore # HP Smart
-& $winget install --silent --id 9NKSQGP7F2NH --source msstore # WhatsApp
+$programasInstalarWindowsStore = @(
+    '9WZDNCRFHWLH',  # HP Smart
+    '9NKSQGP7F2NH' # WhatsApp
+)
+foreach ($programa in $programasInstalarWindowsStore) {
+    & $winget install --silent --id "$programa" --source msstore
+}
