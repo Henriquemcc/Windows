@@ -24,22 +24,16 @@ $programasRemoverWinget = @('Microsoft.OneDrive',
 )
 foreach ($programa in $programasRemoverWinget)
 {
-    & $winget uninstall --silent --id "$programa"
+    & $winget uninstall --silent "$programa"
 }
 
 # Instalando programas
-$programasInstalarWinget = @('Mozilla.Firefox.ESR', 'Google.Chrome', 'Bitwarden.Bitwarden', 'Spotify.Spotify', 'Microsoft.Teams', 'OpenWhisperSystems.Signal', '7zip.7zip', 'VideoLAN.VLC', 'EclipseAdoptium.Temurin.21.JDK', 'EclipseAdoptium.Temurin.8.JDK', 'Python.Python.3.12', 'Microsoft.VisualStudioCode', 'Git.Git', 'JetBrains.IntelliJIDEA.Community', 'JetBrains.PyCharm.Community', 'Microsoft.WindowsTerminal', 'Microsoft.VisualStudio.2022.Community', 'TheDocumentFoundation.LibreOffice', 'Adobe.Acrobat.Reader.64-bit', 'Discord.Discord', 'GIMP.GIMP', 'Oracle.VirtualBox', 'Giorgiotani.Peazip', 'WireGuard.WireGuard', 'Microsoft.BingWallpaper', 'Discord.Discord', 'Audacity.Audacity', 'gerardog.gsudo', 'Rclone.Rclone', 'GitHub.cli', 'Microsoft.Skype', 'Valve.Steam', 'ElectronicArts.EADesktop', 'EpicGames.EpicGamesLauncher', 'Ubisoft.Connect', 'DominikReichl.KeePass', 'Rufus.Rufus', 'JGraph.Draw', 'Oracle.MySQLWorkbench', 'Nvidia.CUDA', 'Nvidia.GeForceExperience', 'PuTTY.PuTTY', 'HARMAN.AdobeAIR', 'JetBrains.CLion', 'Docker.DockerDesktop', 'DominikReichl.KeePass ', 'Insecure.Nmap', 'OBSProject.OBSStudio', 'qBittorrent.qBittorrent', 'Python.Launcher', 'Cisco.Webex', 'Gyan.FFmpeg', 'Postman.Postman', 'Stremio.Stremio', 'JetBrains.Toolbox', 'KDE.Kdenlive', 'yt-dlp.yt-dlp', 'Debian.Debian')
+$programasInstalarWinget = @('Mozilla.Firefox.ESR', 'Google.Chrome', 'Bitwarden.Bitwarden', 'OpenWhisperSystems.Signal', '7zip.7zip', 'VideoLAN.VLC', 'EclipseAdoptium.Temurin.21.JDK', 'EclipseAdoptium.Temurin.8.JDK', 'Python.Python.3.12', 'Microsoft.VisualStudioCode', 'Git.Git', 'JetBrains.IntelliJIDEA.Community', 'JetBrains.PyCharm.Community', 'Microsoft.WindowsTerminal', 'Microsoft.VisualStudio.2022.Community', 'TheDocumentFoundation.LibreOffice', 'Adobe.Acrobat.Reader.64-bit', 'Discord.Discord', 'GIMP.GIMP', 'Oracle.VirtualBox', 'Giorgiotani.Peazip', 'WireGuard.WireGuard', 'Microsoft.BingWallpaper', 'Audacity.Audacity', 'gerardog.gsudo', 'Rclone.Rclone', 'GitHub.cli', 'Valve.Steam', 'ElectronicArts.EADesktop', 'EpicGames.EpicGamesLauncher', 'Ubisoft.Connect', 'DominikReichl.KeePass', 'Rufus.Rufus', 'JGraph.Draw', 'Oracle.MySQLWorkbench', 'Nvidia.CUDA', 'Nvidia.GeForceExperience', 'PuTTY.PuTTY', 'HARMAN.AdobeAIR', 'JetBrains.CLion', 'Docker.DockerDesktop', 'DominikReichl.KeePass ', 'Insecure.Nmap', 'OBSProject.OBSStudio', 'qBittorrent.qBittorrent', 'Python.Launcher', 'Cisco.Webex', 'Gyan.FFmpeg', 'Postman.Postman', 'Stremio.Stremio', 'JetBrains.Toolbox', 'KDE.Kdenlive', 'yt-dlp.yt-dlp', 'Debian.Debian')
 foreach ($programa in $programasInstalarWinget)
 {
-    & $winget install --silent --id "$programa" --source winget
+    & $winget install --silent "$programa" --source winget
 }
 
 # Instalando programas da Microsoft Store
-$programasInstalarWindowsStore = @(
-    '9WZDNCRFHWLH', # HP Smart
-    '9NKSQGP7F2NH' # WhatsApp
-)
-foreach ($programa in $programasInstalarWindowsStore)
-{
-    & $winget install --silent --id "$programa" --source msstore
-}
+# Microsoft Teams, Spotify, HP Smart, WhatsApp, Skype
+& $winget install --silent 'XP8BT8DW290MPQ'  '9NCBCSZSJRSB' '9WZDNCRFHWLH' '9NKSQGP7F2NH' '9WZDNCRFJ364' --source msstore
