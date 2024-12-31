@@ -1,7 +1,15 @@
 ﻿Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "functions", "Util", "Test-AdministratorPrivileges.ps1"))
 
 # Download Variables
-$url = "https://download.jetbrains.com/idea/ideaIC-2022.2.3.exe"
+$url = if ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "amd64" -or $env:PROCESSOR_ARCHITECTURE.ToLower() -eq "x86") {
+    "https://download.jetbrains.com/idea/ideaIC-2024.3.1.1.exe"
+}
+elseif ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "arm64") {
+    "https://download.jetbrains.com/idea/ideaIC-2024.3.1.1-aarch64.exe"
+}
+else {
+    throw "Invalid Architecture"
+}
 $downloadFileName = [System.IO.Path]::GetFileName($url)
 $downloadDirectoryPath = $env:TMP
 $downloadFilePath = [System.IO.Path]::Combine($downloadDirectoryPath, $downloadFileName)

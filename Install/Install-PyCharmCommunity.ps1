@@ -2,10 +2,10 @@
 
 # Download Variables
 $url = if ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "amd64" -or $env:PROCESSOR_ARCHITECTURE.ToLower() -eq "x86") {
-    "https://download.jetbrains.com/python/pycharm-professional-2022.3.2.exe"
+    "https://download.jetbrains.com/python/pycharm-community-2024.3.1.1.exe"
 }
 elseif ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "arm64") {
-    "https://download.jetbrains.com/python/pycharm-professional-2022.3.2-aarch64.exe"
+    "https://download.jetbrains.com/python/pycharm-community-2024.3.1.1-aarch64.exe"
 }
 else {
     throw "Invalid Architecture"
