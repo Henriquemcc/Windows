@@ -45,7 +45,7 @@ while ($opcao -ne 0) {
     }
 
     elseif ($opcao -eq 2) {
-        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "Install", "Install-Ccleaner.ps1"))
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "PortableApps", "Install-Ccleaner.ps1"))
     }
 
     elseif ($opcao -eq 3) {
@@ -53,19 +53,19 @@ while ($opcao -ne 0) {
     }
 
     elseif ($opcao -eq 4) {
-        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "Install", "Install-OpenSshServer.ps1"))
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "PortableApps", "Install-OpenSshServer.ps1"))
     }
 
     elseif ($opcao -eq 5) {
-        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "Install", "Install-AndroidStudio.ps1"))
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "PortableApps", "Install-AndroidStudio.ps1"))
     }
 
     elseif ($opcao -eq 6) {
-        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "Install", "Install-Audacity.ps1"))
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "PortableApps", "Install-Audacity.ps1"))
     }
 
     elseif ($opcao -eq 7) {
-        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "Install", "Install-Chocolatey.ps1"))
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "PortableApps", "Install-Chocolatey.ps1"))
     }
 
     elseif ($opcao -eq 8) {
@@ -73,66 +73,66 @@ while ($opcao -ne 0) {
     }
 
     elseif ($opcao -eq 9) {
-        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "Install", "Install-Chromium.ps1"))
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "PortableApps", "Install-Chromium.ps1"))
     }
 
     elseif ($opcao -eq 10) {
-        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "Install", "Install-EclipseTemurin.ps1")) -Version 8
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "PortableApps", "Install-EclipseTemurin.ps1")) -Version 8
     }
 
     elseif ($opcao -eq 11) {
-        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "Install", "Install-EclipseTemurin.ps1")) -Version 11
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "PortableApps", "Install-EclipseTemurin.ps1")) -Version 11
     }
 
     elseif ($opcao -eq 12) {
-        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "Install", "Install-EclipseTemurin.ps1")) -Version 17
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "PortableApps", "Install-EclipseTemurin.ps1")) -Version 17
     }
 
     elseif ($opcao -eq 13) {
-        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "Install", "Install-FirefoxEsr.ps1"))
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "PortableApps", "Install-FirefoxEsr.ps1"))
     }
 
     elseif ($opcao -eq 14) {
-        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "Install", "Install-Gimp.ps1"))
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "PortableApps", "Install-Gimp.ps1"))
     }
 
     elseif ($opcao -eq 15) {
-        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "Install", "Install-Git.ps1"))
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "PortableApps", "Install-Git.ps1"))
     }
 
     elseif ($opcao -eq 16) {
-        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "Install", "Install-IntellijIdeaCommunity.ps1"))
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "PortableApps", "Install-IntellijIdeaCommunity.ps1"))
     }
 
     elseif ($opcao -eq 17) {
-        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "Install", "Install-KeePass.ps1"))
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "PortableApps", "Install-KeePass.ps1"))
     }
 
     elseif ($opcao -eq 18) {
-        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "Install", "Install-KeePassXc.ps1"))
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "PortableApps", "Install-KeePassXc.ps1"))
     }
 
     elseif ($opcao -eq 19) {
-        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "Install", "Install-LibreOffice.ps1"))
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "PortableApps", "Install-LibreOffice.ps1"))
     }
 
     elseif ($opcao -eq 20) {
-        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "Install", "Install-Nomacs.ps1"))
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "PortableApps", "Install-Nomacs.ps1"))
     }
 
     elseif ($opcao -eq 21) {
-        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "Install", "Install-PaintDotNet.ps1"))
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "PortableApps", "Install-PaintDotNet.ps1"))
     }
 
     elseif ($opcao -eq 22) {
-        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "Install", "Install-Peazip.ps1"))
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "PortableApps", "Install-Peazip.ps1"))
     }
 
     elseif ($opcao -eq 23) {
-        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "Install", "Install-Python.ps1"))
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "PortableApps", "Install-Python.ps1"))
     }
 
     elseif ($opcao -eq 24) {
-        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "Install", "Install-VisualStudioCode.ps1"))
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "PortableApps", "Install-VisualStudioCode.ps1"))
     }
 }
