@@ -18,6 +18,6 @@ while ($opcao -ne 0) {
     $opcao = ObterOpcao
 
     if ($opcao -eq 1) {
-        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "InstalacaoPadrao", "Henrique_PC.ps1"))
+        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "InstalarHenrique_PC.ps1"))
     }
 }
