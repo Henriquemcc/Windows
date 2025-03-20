@@ -47,3 +47,6 @@ foreach ($programa in $programasInstalarWinget)
 # Instalando programas da Microsoft Store
 # Microsoft Teams, Spotify, HP Smart, WhatsApp
 & $winget install --silent 'XP8BT8DW290MPQ'  '9NCBCSZSJRSB' '9WZDNCRFHWLH' '9NKSQGP7F2NH' --source msstore
+
+# Configurando o Git
+& ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition), "ConfigurarGit.ps1"))
