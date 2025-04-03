@@ -13,3 +13,6 @@ $powershellPath = [System.IO.Path]::Combine($env:SystemRoot, "System32", "Window
 $powershellArgs = "-NonInteractive -NoProfile -ExecutionPolicy Unrestricted -File `"$destination`""
 $description = "Service that automatically updates Windows programs using Winget"
 New-Service -Name $programName -BinaryPathName "$powershellPath $powershellArgs" -DisplayName $programName -StartupType Automatic -Description $description
+
+# Iniciando o Serviço
+Start-Service -Name $programName
