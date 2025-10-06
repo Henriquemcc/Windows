@@ -31,7 +31,7 @@ foreach ($programa in $programasRemoverWinget)
 
 # Instalando programas
 $programasInstalarWinget = @('Mozilla.Firefox.ESR', 'Google.Chrome', 'Bitwarden.Bitwarden', 'SumatraPDF.SumatraPDF', 'OpenWhisperSystems.Signal',
-'7zip.7zip', 'VideoLAN.VLC', 'EclipseAdoptium.Temurin.21.JDK', 'EclipseAdoptium.Temurin.8.JDK', 'Python.Python.3.12', 'Microsoft.VisualStudioCode',
+'7zip.7zip', 'VideoLAN.VLC', 'EclipseAdoptium.Temurin.25.JDK', 'EclipseAdoptium.Temurin.8.JDK', 'Python.Python.3.13', 'Microsoft.VisualStudioCode',
 'Git.Git', 'JetBrains.IntelliJIDEA.Community', 'JetBrains.PyCharm.Community', 'Microsoft.WindowsTerminal', 'Microsoft.VisualStudio.2022.Community',
 'TheDocumentFoundation.LibreOffice', 'Adobe.Acrobat.Reader.64-bit', 'Discord.Discord', 'GIMP.GIMP', 'Oracle.VirtualBox', 'Giorgiotani.Peazip',
 'WireGuard.WireGuard', 'Microsoft.BingWallpaper', 'Audacity.Audacity', 'gerardog.gsudo', 'Rclone.Rclone', 'GitHub.cli', 'Valve.Steam',
