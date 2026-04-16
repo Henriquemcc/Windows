@@ -53,7 +53,8 @@ while ($opcao -ne 0) {
     }
 
     elseif ($opcao -eq 4) {
-        & ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "PortableApps", "Install-OpenSshServer.ps1"))
+        Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "fuctions", "OpenSshServer", "Install-OpenSshServer.ps1"))
+        Install-OpenSshServer
     }
 
     elseif ($opcao -eq 5) {
