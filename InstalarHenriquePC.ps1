@@ -39,7 +39,7 @@ $programasInstalarWinget = @('Mozilla.Firefox.ESR', 'Google.Chrome', 'Bitwarden.
 'Oracle.MySQLWorkbench', 'Nvidia.CUDA', 'Nvidia.GeForceExperience', 'PuTTY.PuTTY', 'HARMAN.AdobeAIR', 'JetBrains.CLion', 'Docker.DockerDesktop',
 'DominikReichl.KeePass ', 'Insecure.Nmap', 'OBSProject.OBSStudio', 'qBittorrent.qBittorrent', 'Python.Launcher', 'Cisco.Webex', 'Gyan.FFmpeg',
 'Postman.Postman', 'Stremio.Stremio', 'JetBrains.Toolbox', 'KDE.Kdenlive', 'yt-dlp.yt-dlp', 'Debian.Debian', 'Microsoft.PowerToys',
-'ImageMagick.ImageMagick', 'Microsoft.Sysinternals.Whois')
+'ImageMagick.ImageMagick', 'Microsoft.Sysinternals.Whois', 'Microsoft.Coreutils', 'TeamViewer.TeamViewer')
 foreach ($programa in $programasInstalarWinget)
 {
     & $winget install --silent "$programa" --source winget
