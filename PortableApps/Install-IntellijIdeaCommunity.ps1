@@ -2,10 +2,10 @@
 
 # Download Variables
 $url = if ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "amd64" -or $env:PROCESSOR_ARCHITECTURE.ToLower() -eq "x86") {
-    "https://download.jetbrains.com/idea/ideaIC-2024.3.1.1.exe"
+    "https://download.jetbrains.com/idea/idea-2026.1.4.exe"
 }
 elseif ($env:PROCESSOR_ARCHITECTURE.ToLower() -eq "arm64") {
-    "https://download.jetbrains.com/idea/ideaIC-2024.3.1.1-aarch64.exe"
+    "https://download.jetbrains.com/idea/idea-2026.1.4-aarch64.exe"
 }
 else {
     throw "Invalid Architecture"
