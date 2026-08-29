@@ -37,7 +37,7 @@ $programasInstalarWinget = @('Mozilla.Firefox.ESR', 'Google.Chrome', 'Bitwarden.
 'Giorgiotani.Peazip', 'WireGuard.WireGuard', 'Microsoft.BingWallpaper', 'Audacity.Audacity', 'Rclone.Rclone', 'GitHub.cli', 'Valve.Steam',
 'ElectronicArts.EADesktop', 'EpicGames.EpicGamesLauncher', 'Ubisoft.Connect', 'DominikReichl.KeePass', 'Rufus.Rufus', 'JGraph.Draw',
 'Oracle.MySQLWorkbench', 'Nvidia.CUDA', 'Nvidia.GeForceExperience', 'PuTTY.PuTTY', 'HARMAN.AdobeAIR', 'Docker.DockerDesktop',
-'DominikReichl.KeePass ', 'Insecure.Nmap', 'OBSProject.OBSStudio', 'qBittorrent.qBittorrent', 'Python.Launcher', 'Cisco.Webex', 'Gyan.FFmpeg',
+'DominikReichl.KeePass ', 'Insecure.Nmap', 'OBSProject.OBSStudio', 'qBittorrent.qBittorrent', 'Python.Launcher', 'Gyan.FFmpeg',
 'Postman.Postman', 'Stremio.Stremio', 'JetBrains.Toolbox', 'KDE.Kdenlive', 'yt-dlp.yt-dlp', 'Canonical.Ubuntu', 'Microsoft.PowerToys',
 'ImageMagick.ImageMagick', 'Microsoft.Sysinternals.Whois', 'Microsoft.Coreutils', 'TeamViewer.TeamViewer')
 foreach ($programa in $programasInstalarWinget)
