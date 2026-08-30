@@ -46,6 +46,9 @@ foreach ($programa in $programasInstalarWinget)
     & $winget install --silent "$programa" --source winget
 }
 
+# Instalando o Wsl
+wsl --install
+
 # Instalando programas da Microsoft Store
 # Microsoft Teams, Spotify, HP Smart, WhatsApp
 & $winget install --silent 'XP8BT8DW290MPQ'  '9NCBCSZSJRSB' '9WZDNCRFHWLH' '9NKSQGP7F2NH' --source msstore
