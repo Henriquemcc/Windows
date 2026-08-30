@@ -40,15 +40,15 @@ $programasInstalarWinget = @('Mozilla.Firefox.ESR', 'Google.Chrome', 'Bitwarden.
 'Ubisoft.Connect', 'DominikReichl.KeePass', 'Rufus.Rufus', 'JGraph.Draw', 'Oracle.MySQLWorkbench', 'Nvidia.CUDA', 'Nvidia.GeForceExperience',
 'PuTTY.PuTTY', 'HARMAN.AdobeAIR', 'RedHat.Podman', 'RedHat.Podman-Desktop', 'Docker.DockerDesktop', 'Kubernetes.kubectl', 'DominikReichl.KeePass ',
 'Insecure.Nmap', 'OBSProject.OBSStudio', 'qBittorrent.qBittorrent', 'Python.Launcher', 'Gyan.FFmpeg', 'Postman.Postman', 'Stremio.Stremio',
-'JetBrains.Toolbox', 'KDE.Kdenlive', 'yt-dlp.yt-dlp', 'Canonical.Ubuntu', 'Microsoft.PowerToys', 'ImageMagick.ImageMagick', 'Microsoft.Sysinternals.Whois',
+'JetBrains.Toolbox', 'KDE.Kdenlive', 'yt-dlp.yt-dlp', 'Microsoft.PowerToys', 'ImageMagick.ImageMagick', 'Microsoft.Sysinternals.Whois',
 'Microsoft.Coreutils', 'TeamViewer.TeamViewer')
 foreach ($programa in $programasInstalarWinget)
 {
     & $winget install --silent "$programa" --source winget
 }
 
-# Instalando o Wsl
-wsl --install
+# Instalando o Wsl para o Ubuntu 26.04
+wsl --install Ubuntu-26.04
 
 # Instalando programas da Microsoft Store
 # Microsoft Teams, Spotify, HP Smart, WhatsApp
