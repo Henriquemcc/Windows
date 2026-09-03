@@ -38,9 +38,9 @@ $programasInstalarWinget = @('Mozilla.Firefox.ESR', 'Google.Chrome', 'Bitwarden.
 'Discord.Discord', 'GIMP.GIMP.3', 'Oracle.VirtualBox', 'Giorgiotani.Peazip', 'WireGuard.WireGuard', 'Microsoft.BingWallpaper',
 'Audacity.Audacity', 'Rclone.Rclone', 'GitHub.cli', 'Valve.Steam', 'ElectronicArts.EADesktop', 'EpicGames.EpicGamesLauncher',
 'Ubisoft.Connect', 'DominikReichl.KeePass', 'Rufus.Rufus', 'JGraph.Draw', 'Oracle.MySQLWorkbench', 'Nvidia.CUDA', 'Nvidia.GeForceExperience',
-'PuTTY.PuTTY', 'HARMAN.AdobeAIR', 'RedHat.Podman', 'RedHat.Podman-Desktop', 'Docker.DockerDesktop', 'Kubernetes.kubectl', 'DominikReichl.KeePass ',
-'Insecure.Nmap', 'OBSProject.OBSStudio', 'qBittorrent.qBittorrent', 'Python.Launcher', 'Gyan.FFmpeg', 'Postman.Postman', 'Stremio.Stremio',
-'JetBrains.Toolbox', 'KDE.Kdenlive', 'yt-dlp.yt-dlp', 'Microsoft.PowerToys', 'ImageMagick.ImageMagick', 'Microsoft.Sysinternals.Whois',
+'PuTTY.PuTTY', 'HARMAN.AdobeAIR', 'RedHat.Podman', 'RedHat.Podman-Desktop', 'Docker.DockerDesktop', 'Kubernetes.kubectl', 'SUSE.RancherDesktop',
+'DominikReichl.KeePass', 'Insecure.Nmap', 'OBSProject.OBSStudio', 'qBittorrent.qBittorrent', 'Python.Launcher', 'Gyan.FFmpeg', 'Postman.Postman',
+'Stremio.Stremio', 'JetBrains.Toolbox', 'KDE.Kdenlive', 'yt-dlp.yt-dlp', 'Microsoft.PowerToys', 'ImageMagick.ImageMagick', 'Microsoft.Sysinternals.Whois',
 'Microsoft.Coreutils', 'TeamViewer.TeamViewer')
 foreach ($programa in $programasInstalarWinget)
 {
