@@ -1,5 +1,5 @@
 # Importando módulo necessário para verificar privilégios de administrador
-Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition)), "functions", "Util", "Test-AdministratorPrivileges.ps1")
+Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition), "functions", "Util", "Test-AdministratorPrivileges.ps1"))
 
 # Carrega as variáveis do arquivo .env, se ele existir
 if (Test-Path .env) {
