@@ -1,6 +1,3 @@
-# Importando módulo necessário para verificar privilégios de administrador
-Import-Module -Name ([System.IO.Path]::Combine([System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Definition), "functions", "Util", "Test-AdministratorPrivileges.ps1"))
-
 # Carrega as variáveis do arquivo .env, se ele existir
 if (Test-Path .env) {
     Get-Content .env | Where-Object { $_ -and -not $_.StartsWith("#") } | ForEach-Object {
@@ -19,7 +16,8 @@ if ([string]::IsNullOrWhiteSpace($GITHUB_USERNAME)) {
 }
 
 # Obtendo o caminho do arquivo no qual será salvo as chaves públicas do GitHub
-if (Test-AdministratorPrivileges) {
+$isAdmin = ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+if ($isAdmin) {
     $sshDir = Join-Path $ENV:ProgramData "ssh"
     $authKeysPath = Join-Path $sshDir "administrators_authorized_keys"
 } else {
@@ -38,6 +36,6 @@ Invoke-RestMethod -Uri "https://github.com/${GITHUB_USERNAME}.keys" | Out-File -
 
 # Ajusta as permissões no Windows (Equivalente ao chmod 600)
 # Desativa a herança e remove outros usuários
-if (-not (Test-AdministratorPrivileges)) {
+if (-not $isAdmin)) {
     icacls.exe $authKeysPath /inheritance:r /grant:r "$($env:USERNAME):(F)"
 }
