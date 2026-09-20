@@ -36,6 +36,6 @@ Invoke-RestMethod -Uri "https://github.com/${GITHUB_USERNAME}.keys" | Out-File -
 
 # Ajusta as permissões no Windows (Equivalente ao chmod 600)
 # Desativa a herança e remove outros usuários
-if (-not $isAdmin)) {
+if (-not ($isAdmin)) {
     icacls.exe $authKeysPath /inheritance:r /grant:r "$($env:USERNAME):(F)"
 }
